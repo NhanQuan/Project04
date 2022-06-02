@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -41,8 +41,8 @@
             </div>
             <div class="user-form-card">
               <div class="user-form-title">
-                <h2>Đăng Ký Ngay!</h2>
-                <p>Thiết Lập Một Tài Khoản Mới</p>
+                <h2>Register now!</h2>
+                <p>Setting Up a New Account</p>
               </div>
               <div class="user-form-group">
                 <ul class="user-form-social">
@@ -60,7 +60,7 @@
                   </li>
                   
                 </ul>
-                <div class="user-form-divider"><p>hoặc</p></div>
+                <div class="user-form-divider"><p>Or</p></div>
                 
                 <form th:action="@{/register}" method="post" th:object="${user}" class="user-form">
                     <div class="form-group">
@@ -95,7 +95,7 @@
                             class="form-control"
                             id="myPass"
                             name="password"
-                            placeholder="Mật khẩu"
+                            placeholder="Password"
                             required="required"
                         />
                     </div>
@@ -106,20 +106,20 @@
                             type="checkbox"
                             value=""
                             onclick="hidePass()"/>
-                        <label class="form-check-label" for="check" >Hiển thị mật khẩu</label>
+                        <label class="form-check-label" for="check" >Show Password</label>
                   </div>
                   
                   <div class="form-button">
-                    <button type="submit">Đăng Ký</button>
+                    <button type="submit">Register</button>
                   </div>
                 </form>
               </div>
             </div>
             <div class="user-form-remind">
-              <p>Bạn đã có tài khoản?<a th:href="@{/login}">Đăng nhập tại đây</a></p>
+              <p>Do you already have an account?<a th:href="@{/login}">Sign in here</a></p>
             </div>
             <div class="user-form-footer">
-              <p>Greeny | &COPY; Developer by <a href="javascript:void(0);">DongTHD</a></p>
+              <p>Vegetable Organic | &COPY; Developer by <a href="javascript:void(0);">Our Group</a></p>
             </div>
           </div>
         </div>

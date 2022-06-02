@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -47,7 +47,7 @@
         <h2>Sản phẩm</h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a th:href="@{/}">Trang chủ</a>
+                <a th:href="@{/}">Home Page</a>
             </li>
         </ol>
       </div>
@@ -60,7 +60,7 @@
               <a href="#"><img src="images/promo/shop/01.jpg" alt="promo" /></a>
             </div>
             <div class="shop-widget">
-              <h6 class="shop-widget-title">Theo thể loại</h6>
+              <h6 class="shop-widget-title">By category</h6>
               
                 <ul class="shop-widget-list shop-widget-scroll">
                   <li th:each="item : ${coutnProductByCategory}">
@@ -171,7 +171,7 @@
                     
                     <a class="product-add1" title="Thêm Giỏ Hàng" th:href="@{/addToCart(productId=${item.productId})}" >
                       <i class="fas fa-shopping-basket"></i>
-                      <span>Thêm Giỏ Hàng</span>
+                      <span>Add Cart</span>
                     </a>
                     
                   </div>
@@ -211,15 +211,15 @@
 			<div class="row align-items-center">
 				<div class="col-md-5 col-lg-6 col-xl-7">
 					<div class="news-text">
-						<h2>Nhận Chiết Khấu 20% Cho Người Đăng Ký</h2>
-						<p>Nhận Chiết Khấu 20% Cho Người Đăng Ký</p>
+						<h2>Receive 20% Discount For Subscribers</h2>
+						<p>Receive 20% Discount For Subscribers</p>
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-6 col-xl-5">
 					<form class="news-form">
-						<input type="text" placeholder="Nhập Địa Chỉ Email Của Bạn" />
+						<input type="text" placeholder="Enter Your Email" />
 						<button>
-							<span><i class="icofont-ui-email"></i>Gửi</span>
+							<span><i class="icofont-ui-email"></i>Send</span>
 						</button>
 					</form>
 				</div>
@@ -235,7 +235,7 @@
 							<i class="fas fa-truck"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Giao Hàng Tận Nhà Miễn Phí</h5>
+							<h5>Free Home Delivery</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -246,7 +246,7 @@
 							<i class="fas fa-sync-alt"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Chính Sách Hoàn Trả</h5>
+							<h5>Refund Policy</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -257,7 +257,7 @@
 							<i class="fas fa-headset"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Hệ Thống Hỗ Trợ</h5>
+							<h5>Support system</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -268,7 +268,7 @@
 							<i class="fas fa-lock"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Cách Thanh Toán An Toàn</h5>
+							<h5>Safe Payment Way</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>

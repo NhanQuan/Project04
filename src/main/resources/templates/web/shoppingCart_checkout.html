@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -45,9 +45,9 @@
       class="inner-section single-banner"
       style="background: url(images/single-banner.jpg) no-repeat center">
       <div class="container">
-        <h2>Thông tin đơn hàng</h2>
+        <h2>Information line</h2>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/}">Home Page</a></li>
         </ol>
       </div>
     </section>
@@ -57,17 +57,17 @@
           <div class="col-lg-12">
             <div class="alert-info">
               <p>
-                Phản hồi khách hàng? <a href="javascript:void(0);">Đăng nhập</a>
+                Customer Feedback? <a href="javascript:void(0);">Log in</a>
               </p>
             </div>
           </div>
           <div class="col-lg-12">
             <div class="account-card">
-              <div class="account-title"><h4>Đơn Đặt Hàng Của Bạn</h4></div>
+              <div class="account-title"><h4>Your order list</h4></div>
               <div th:unless="${totalCartItems!=0}" class="text-center">
-					<h3 style="color: #119744" class="mt-5">Hiện tại bạn chưa có sản phẩm nào trong giỏ hàng!</h3>
-					<h4 style="color: #119744">Hãy mua sắm đi nào!</h4>
-					<a th:href="@{/products}" style="text-decoration: underline;">Click tại đây!</a>
+					<h3 style="color: #119744" class="mt-5">You currently have no products in your cart!</h3>
+					<h4 style="color: #119744">Let's go shopping!</h4>
+					<a th:href="@{/products}" style="text-decoration: underline;">Click here!</a>
 				</div>
               <div class="account-content">
                 <div class="table-scroll">
@@ -75,12 +75,12 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Sản phẩm</th>
-                        <th scope="col">Tên sản phẩm</th>
-                        <th scope="col">Đơn giá</th>
-                        <th scope="col">Thể loại</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">action</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Act</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -115,12 +115,12 @@
                 </div>
                 <th:block th:if="${totalCartItems!=0}">
                 <div class="chekout-coupon">
-                  <h4>Tổng tiền thanh toán</h4>
+                  <h4>Total Payment</h4>
                 </div>
                 <div class="checkout-charge">
                   <ul>
                     <li>
-                      <span>Tổng tiền thanh toán<small>(Incl. VAT)</small></span>
+                      <span>Total Payment<small>(Incl. VAT)</small></span>
                       <span>[[${#numbers.formatDecimal(totalPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</span>
                     </li>
                   </ul>
@@ -133,7 +133,7 @@
           <div class="col-lg-12" th:if="${totalCartItems!=0}">
             <div class="account-card mb-0">
               <div class="account-title">
-                <h4>Thông tin nhận hàng</h4>
+                <h4>Delivery information</h4>
               </div>
               <div class="account-content">
                 <div class="row">
@@ -153,7 +153,7 @@
                                 type="text"
                                 th:value="${user.name}"
                                 class="form-control"
-                                placeholder="Họ tên"
+                                placeholder="Full-name"
                                 readonly="readonly"
                             />
                         </div>
@@ -163,7 +163,7 @@
                                 type="text"
                                 th:field="*{address}"
                                 class="form-control"
-                                placeholder="Địa chỉ"
+                                placeholder="Address"
                                 required="required"
                             />
                         </div>
@@ -173,7 +173,7 @@
                                 type="tel"
                                 th:field="*{phone}"
                                 class="form-control"
-                                placeholder="Số điện thoại"
+                                placeholder="Phone"
                                 required="required"
                             />
                         </div>
@@ -182,24 +182,24 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                placeholder="Nội dung đơn hàng"
+                                placeholder="Order content"
                                 
                             />
                         </div>
 
                         <div class="form-group">
                             <div class="account-title">
-                                <h4>Chọn phương thức thanh toán</h4>
+                                <h4>Select a payment method</h4>
                               </div>
                             <div class="radio">
-                                <label style="color: #119744"><input type="radio" value="cod" name="checkOut" checked> <strong><em>Ship COD ( Thanh toán khi nhận hàng )</em></strong></label>
+                                <label style="color: #119744"><input type="radio" value="cod" name="checkOut" checked> <strong><em>Ship COD (Payment on receipt)</em></strong></label>
                             </div>
                             <div class="radio">
-                                <label style="color: #119744"><input type="radio" value="paypal" name="checkOut"> <strong><em>Thanh Toán Với Paypal</em></strong></label>
+                                <label style="color: #119744"><input type="radio" value="paypal" name="checkOut"> <strong><em>Paying With Paypal</em></strong></label>
                             </div>
                         </div>
                         <div class="checkout-proced">
-                            <button type="submit" class="btn btn-inline">Đặt hàng</button>
+                            <button type="submit" class="btn btn-inline">Order</button>
                         </div>
                     </form>
                 </div>
@@ -218,8 +218,8 @@
         <div class="row align-items-center">
           <div class="col-md-5 col-lg-6 col-xl-7">
             <div class="news-text">
-              <h2>Nhận chiết khấu 20% cho người đăng ký</h2>
-              <p>Nhận chiết khấu 20% cho người đăng ký</p>
+              <h2>Get 20% Discount for Subscribers</h2>
+              <p>Get 20% Discount for Subscribers</p>
             </div>
           </div>
           <div class="col-md-7 col-lg-6 col-xl-5">
@@ -242,7 +242,7 @@
             <div class="intro-wrap">
               <div class="intro-icon"><i class="fas fa-truck"></i></div>
               <div class="intro-content">
-                <h5>Giao Hàng Tận Nhà Miễn Phí</h5>
+                <h5>Free Home Delivery</h5>
                 <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
               </div>
             </div>
@@ -251,7 +251,7 @@
             <div class="intro-wrap">
               <div class="intro-icon"><i class="fas fa-sync-alt"></i></div>
               <div class="intro-content">
-                <h5>Chính Sách Hoàn Trả</h5>
+                <h5>Refund Policy</h5>
                 <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
               </div>
             </div>
@@ -260,7 +260,7 @@
             <div class="intro-wrap">
               <div class="intro-icon"><i class="fas fa-headset"></i></div>
               <div class="intro-content">
-                <h5>Hệ Thống Hỗ Trợ</h5>
+                <h5>Support System</h5>
                 <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
               </div>
             </div>
@@ -269,7 +269,7 @@
             <div class="intro-wrap">
               <div class="intro-icon"><i class="fas fa-lock"></i></div>
               <div class="intro-content">
-                <h5>Cách Thanh Toán An Toàn</h5>
+                <h5>Safe Payment Way</h5>
                 <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
               </div>
             </div>
@@ -294,15 +294,15 @@
 		            	<i class="icofont-close"></i>
 		          	</button>
 					<div class="modal-form">
-						<h5 class="modal-title">Xác nhận</h5>
+						<h5 class="modal-title">Confirm</h5>
 						<div class="modal-body">
 						<p>
-							Bạn có muốn xoá sản phẩm " <span style="color: #119744" id="productName"></span> "
-							ra khỏi giỏ hàng không ?
+                          Do you want to delete the product " <span style="color: #119744" id="productName"></span> "
+                          out of the cart?
 						</p>
 					</div>
 					<div class="modal-footer">
-						<a id="yesOption" type="button" class="btn btn-success">Có</a>
+						<a id="yesOption" type="button" class="btn btn-success">Yes</a>
 					</div>
 					</div>
 					
