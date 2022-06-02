@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -45,9 +45,9 @@
       class="single-banner inner-section"
       style="background: url(images/single-banner.jpg) no-repeat center">
       <div class="container">
-        <h2>Chi tiết sản phẩm</h2>
+        <h2>Product details</h2>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/}">Home Page</a></li>
         </ol>
       </div>
     </section>
@@ -78,8 +78,8 @@
                 <a href="#">[[${product.productName}]]</a>
               </h3>
               <div class="details-meta">
-                <p>Mã sản phẩm:<span>[[${product.productId}]]</span></p>
-                <p>Thể loại:<a href="#">[[${product.category.categoryName}]]</a></p>
+                <p>Product code:<span>[[${product.productId}]]</span></p>
+                <p>Category:<a href="#">[[${product.category.categoryName}]]</a></p>
               </div>
               <div class="details-rating">
                 <i class="active icofont-star"></i
@@ -97,7 +97,7 @@
                 [[${product.description}]]
               </p>
               <div class="details-list-group">
-                <label class="details-list-title">Xem thêm:</label>
+                <label class="details-list-title">See More:</label>
                 <ul class="details-tag-list">
                   <li th:each="item : ${categoryList}">
                   	<a th:href="@{/productByCategory(categoryId=${item.categoryId})}">[[${item.categoryName}]]</a>
@@ -124,14 +124,14 @@
               <div class="details-add-group">
                 <a class="product-add1" style="background-color: #119744" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${product.productId})}">
                   <i style="color: white" class="fas fa-shopping-basket"></i>
-                  <span style="color: white">Thêm giỏ hàng</span>
+                  <span style="color: white">Add to cart</span>
                 </a>
                 
               </div>
               <div class="details-action-group">
                 <a class="details-wish" href="javascript:void(0);" title="Yêu thích">
                 <i class="icofont-heart"></i>
-                <span>Thêm yêu thích</span></a>
+                <span>Add favorites</span></a>
               </div>
               
             </div>
@@ -144,7 +144,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="product-details-frame">
-              <h3 class="frame-title">Mô tả sản phẩm</h3>
+              <h3 class="frame-title">Product Description</h3>
               <div class="tab-descrip">
                 <p>
                   [[${product.description}]]
@@ -162,7 +162,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section-heading">
-						<h2>Sản phẩm cùng loại</h2>
+						<h2>Similar products</h2>
 					</div>
 				</div>
 			</div>
@@ -251,7 +251,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small> /kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${product.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Thêm giỏ hàng</span>
+										<i class="fas fa-shopping-basket"></i><span>Add to cart</span>
 									</a>
 									
 								</div>
@@ -265,7 +265,7 @@
 				<div class="col">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>xem thêm</span></a>
+							class="fas fa-eye"></i><span>See More</span></a>
 					</div>
 				</div>
 			</div>
@@ -278,15 +278,15 @@
 			<div class="row align-items-center">
 				<div class="col-md-5 col-lg-6 col-xl-7">
 					<div class="news-text">
-						<h2>Nhận Chiết Khấu 20% Cho Người Đăng Ký</h2>
-						<p>Nhận Chiết Khấu 20% Cho Người Đăng Ký</p>
+						<h2>Receive 20% Discount For Subscribers</h2>
+						<p>Receive 20% Discount For Subscribers</p>
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-6 col-xl-5">
 					<form class="news-form">
-						<input type="text" placeholder="Nhập Địa Chỉ Email Của Bạn" />
+						<input type="text" placeholder="Enter Your Email" />
 						<button>
-							<span><i class="icofont-ui-email"></i>Gửi</span>
+							<span><i class="icofont-ui-email"></i>Send</span>
 						</button>
 					</form>
 				</div>
@@ -302,7 +302,7 @@
 							<i class="fas fa-truck"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Giao Hàng Tận Nhà Miễn Phí</h5>
+							<h5>Free Home Delivery</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -313,7 +313,7 @@
 							<i class="fas fa-sync-alt"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Chính Sách Hoàn Trả</h5>
+							<h5>Refund Policy</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -324,7 +324,7 @@
 							<i class="fas fa-headset"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Hệ Thống Hỗ Trợ</h5>
+							<h5>Support system</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -335,7 +335,7 @@
 							<i class="fas fa-lock"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Cách Thanh Toán An Toàn</h5>
+							<h5>Safe Payment Way</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>

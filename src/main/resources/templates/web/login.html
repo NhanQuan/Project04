@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -41,12 +41,12 @@
             </div>
             <div class="user-form-card">
               <div class="user-form-title">
-                <h2>Đăng nhập!</h2>
-                <p>Sử Dụng Thông Tin Đăng Nhập Của Bạn Để Truy Cập</p>
+                <h2>Log in!</h2>
+                <p>Use Your Login Credentials To Access</p>
                 <br>
                 <div class="alert alert-success" role="alert"
 					th:if="${message}">
-					<strong>Chúc mừng !</strong>  Bạn đã đăng ký và kích hoạt tài khoản thành công!
+					<strong>Congratulations !</strong>  You have successfully registered and activated your account!
 				</div>
 				
               </div>
@@ -65,13 +65,13 @@
                   </li>
 
                 </ul>
-                <div class="user-form-divider"><p>hoặc</p></div>
+                <div class="user-form-divider"><p>Or</p></div>
                 
                 <form th:action="@{/doLogin}" method="post" class="user-form">
                 
                		 <!-- error message -->
 					<div th:if="${param.error}">
-						<div class="alert alert-danger"><span>Tài khoản hoặc mật khẩu không chính xác!</span></div>
+						<div class="alert alert-danger"><span>Incorrect account or password!</span></div>
 					</div>
 					<br>
                   <div class="form-group">
@@ -79,7 +79,7 @@
                       type="email"
                       name="username"
                       class="form-control"
-                      placeholder="Địa chỉ Email"
+                      placeholder="Email"
                       autocomplete="off"
                     />
                   </div>
@@ -89,7 +89,7 @@
                       name="password"
                       class="form-control"
                       id="myPass"
-                      placeholder="Mật khẩu"
+                      placeholder="Password"
                     />
                   </div>
                   <div class="form-check mb-3">
@@ -100,13 +100,13 @@
                       id="check"
                       onclick="hidePass()"
                     />
-                    <label class="form-check-label" for="check" >Hiển thị mật khẩu</label>
+                    <label class="form-check-label" for="check" >Show password</label>
                   </div>
                   <div class="form-button">
-                    <button type="submit">Đăng nhập</button>
+                    <button type="submit">Log in</button>
                     <p>
-                        Quên Mật Khẩu?
-                        <a th:href="@{/forgotPassword}">Tại đây</a>
+                      Forgot password?
+                        <a th:href="@{/forgotPassword}">Here</a>
                     </p>
                   </div>
                 </form>
@@ -115,11 +115,11 @@
             </div>
             <div class="user-form-remind">
               <p>
-                Không Có Bất Kỳ Tài Khoản?<a th:href="@{/register}">Đăng Ký Tại Đây</a>
+                Don't Have Any Account?<a th:href="@{/register}">Sign Up Here</a>
               </p>
             </div>
             <div class="user-form-footer">
-              <p>Greeny | &COPY; Developer by <a href="javascript:void(0);">DongTHD</a></p>
+              <p>Vegetable Organic | &COPY; Developer by <a href="javascript:void(0);">Our Group</a></p>
             </div>
           </div>
         </div>

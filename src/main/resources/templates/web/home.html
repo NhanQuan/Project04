@@ -40,8 +40,8 @@
 				<div class="row align-items-center">
 					<div class="col-md-6 col-lg-6">
 						<div class="banner-content">
-							<h1>Giao hàng tận nhà miễn phí trong vòng 24 giờ ngay bây
-								giờ.</h1>
+							<h1>Free home delivery within 24 hours now
+								hours.</h1>
 							<p>Lorem ipsum dolor consectetur adipisicing elit modi
 								consequatur eaque expedita porro necessitatibus eveniet
 								voluptatum quis pariatur Laboriosam molestiae architecto
@@ -50,12 +50,12 @@
 								<a class="btn btn-inline"
 									th:href="@{/products}">
 									<i class="fas fa-shopping-basket"></i>
-									<span>mua sắm ngay bây giờ</span>
+									<span>Buy Now</span>
 								</a>
 								<a class="btn btn-outline"
 									href="javascript:void(0);">
 									<i class="icofont-sale-discount"></i>
-									<span>nhận đề nghị</span>
+									<span>Accept Offer</span>
 								</a>
 							</div>
 						</div>
@@ -78,8 +78,8 @@
 					</div>
 					<div class="col-md-6 col-lg-6">
 						<div class="banner-content">
-							<h1>Giao hàng tận nhà miễn phí trong vòng 24 giờ ngay bây
-								giờ.</h1>
+							<h1>Free home delivery within 24 hours now
+								hours.</h1>
 							<p>Lorem ipsum dolor consectetur adipisicing elit modi
 								consequatur eaque expedita porro necessitatibus eveniet
 								voluptatum quis pariatur Laboriosam molestiae architecto
@@ -87,12 +87,12 @@
 							<div class="banner-btn">
 								<a class="btn btn-inline" th:href="@{/products}">
 									<i class="fas fa-shopping-basket"></i>
-									<span>mua sắm ngay bây giờ</span>
+									<span>Buy Now</span>
 								</a>
 								<a class="btn btn-outline"
 									href="javascript:void(0);">
 									<i class="icofont-sale-discount"></i>
-									<span>nhận đề nghị</span>
+									<span>Accept Order</span>
 								</a>
 							</div>
 						</div>
@@ -108,7 +108,7 @@
 					<a class="suggest-card" th:href="@{/productByCategory(id=${item[0]})}">
 						<img src="images/suggest/02.jpg" alt="suggest" />
 							<h5>
-								[[${item[1]}]] <span>số lượng : [[${item[2]}]] </span>
+								[[${item[1]}]] <span>Quantity : [[${item[2]}]] </span>
 							</h5>
 					</a>
 				</li>
@@ -120,7 +120,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-heading">
-						<h2>Mặt hàng bán chạy</h2>
+						<h2>Best Seller</h2>
 					</div>
 				</div>
 			</div>
@@ -131,7 +131,7 @@
 							<div class="product-card">
 								<div class="product-media">
 									<div class="product-label">
-										<label class="label-text new">bán chạy</label>
+										<label class="label-text new">Selling</label>
 										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
 									</div>
 									<button class="product-wish wish">
@@ -143,14 +143,14 @@
 									<div class="product-widget">
 										 
 										<a
-											title="Video sản phẩm"
+											title="Video Product"
 											href="https://youtu.be/9xzcVxSBbG8"
 											class="venobox fas fa-play"
 											data-autoplay="true"
 											data-vbtype="video">
 										</a>
 										<a
-											title="Chi tiết sản phẩm"
+											title="Detail Product"
 											th:href="@{/productDetail(id=${item.productId})}"
 											class="fas fa-eye">
 										</a>
@@ -173,7 +173,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Thêm giỏ hàng</span>
+										<i class="fas fa-shopping-basket"></i><span>Add To Cart</span>
 									</a>
 									
 								</div>
@@ -187,7 +187,7 @@
 				<div class="col-lg-12">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>xem thêm</span></a>
+							class="fas fa-eye"></i><span>See More</span></a>
 					</div>
 				</div>
 			</div>
@@ -209,7 +209,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-heading">
-						<h2>Mặt hàng nổi bật</h2>
+						<h2>Featured Items</h2>
 					</div>
 				</div>
 			</div>
@@ -220,7 +220,7 @@
 							<div class="product-card">
 								<div class="product-media">
 									<div class="product-label">
-										<label class="label-text feat">nổi bật</label>
+										<label class="label-text feat">Outstanding</label>
 										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
 									</div>
 									<button class="product-wish wish">
@@ -239,7 +239,7 @@
 											data-vbtype="video">
 										</a>
 										<a
-											title="Chi tiết sản phẩm"
+											title="Detail Product"
 											th:href="@{/productDetail(id=${item.productId})}"
 											class="fas fa-eye">
 										</a>
@@ -262,7 +262,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Thêm giỏ hàng</span>
+										<i class="fas fa-shopping-basket"></i><span>Add To Cart</span>
 									</a>
 									
 								</div>
@@ -275,7 +275,7 @@
 				<div class="col-lg-12">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>xem thêm</span></a>
+							class="fas fa-eye"></i><span>See More</span></a>
 					</div>
 				</div>
 			</div>
@@ -286,7 +286,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6 mx-auto">
 					<div class="countdown-content">
-						<h3>ƯU ĐÃI GIẢM GIÁ ĐẶC BIỆT CHO CÁC MẶT HÀNG</h3>
+						<h3>SPECIAL DISCOUNT OFFER FOR ALL ITEMS</h3>
 						<p>Reprehenderit sed quod autem molestiae aut modi minus
 							veritatis iste dolorum suscipit quis voluptatum fugiat mollitia
 							quia minima</p>
@@ -297,8 +297,7 @@
 								class="countdown-time"><span>00</span><small>seconds</small></span>
 						</div>
 						<a th:href="@{/products}" class="btn btn-inline"><i
-							class="fas fa-shopping-basket"></i><span>Mua sắm ngay bây
-								giờ</span></a>
+							class="fas fa-shopping-basket"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 				<div class="col-lg-1"></div>
@@ -318,7 +317,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section-heading">
-						<h2>Mặt hàng mới về</h2>
+						<h2>New Arrivals</h2>
 					</div>
 				</div>
 			</div>
@@ -329,7 +328,7 @@
 							<div class="product-card">
 								<div class="product-media">
 									<div class="product-label">
-										<label class="label-text new">mới</label>
+										<label class="label-text new">New</label>
 										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
 									</div>
 									<button class="product-wish wish">
@@ -348,7 +347,7 @@
 											data-vbtype="video">
 										</a>
 										<a
-											title="Chi tiết sản phẩm"
+											title="Detail Product"
 											th:href="@{/productDetail(id=${item.productId})}"
 											class="fas fa-eye">
 										</a>
@@ -370,7 +369,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Thêm giỏ hàng</span>
+										<i class="fas fa-shopping-basket"></i><span>Add To Cart</span>
 									</a>
 									
 								</div>
@@ -383,7 +382,7 @@
 				<div class="col">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>xem thêm</span></a>
+							class="fas fa-eye"></i><span>See More</span></a>
 					</div>
 				</div>
 			</div>
@@ -412,7 +411,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="section-heading">
-						<h2>phản hồi của khách hàng</h2>
+						<h2>Customer's Feedback</h2>
 					</div>
 				</div>
 			</div>
@@ -491,13 +490,13 @@
 			<div class="row align-items-center">
 				<div class="col-md-5 col-lg-6 col-xl-7">
 					<div class="news-text">
-						<h2>Nhận Chiết Khấu 20% Cho Người Đăng Ký</h2>
-						<p>Nhận Chiết Khấu 20% Cho Người Đăng Ký</p>
+						<h2>Receive 20% Discount For Subscribers</h2>
+						<p>Receive 20% Discount For Subscribers</p>
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-6 col-xl-5">
 					<form class="news-form">
-						<input type="text" placeholder="Nhập Địa Chỉ Email Của Bạn" />
+						<input type="text" placeholder="Enter Your Email Address" />
 						<button>
 							<span><i class="icofont-ui-email"></i>Gửi</span>
 						</button>
@@ -515,7 +514,7 @@
 							<i class="fas fa-truck"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Giao Hàng Tận Nhà Miễn Phí</h5>
+							<h5>Free Home Delivery</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -526,7 +525,7 @@
 							<i class="fas fa-sync-alt"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Chính Sách Hoàn Trả</h5>
+							<h5>Refund Policy</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -537,7 +536,7 @@
 							<i class="fas fa-headset"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Hệ Thống Hỗ Trợ</h5>
+							<h5>Support system</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -548,7 +547,7 @@
 							<i class="fas fa-lock"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Cách Thanh Toán An Toàn</h5>
+							<h5>Safe Payment Way</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>

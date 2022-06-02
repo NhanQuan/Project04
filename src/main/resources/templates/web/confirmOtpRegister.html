@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -41,8 +41,8 @@
             </div>
             <div class="user-form-card">
               <div class="user-form-title">
-                <h2>Xác nhận đăng ký!</h2>
-                <p>Thiết Lập Một Tài Khoản Mới</p>
+                <h2>Registration confirmation!</h2>
+                <p>Setting Up a New Account</p>
                 <br>
                 <div class="alert alert-success"
               		role="alert"
@@ -59,7 +59,7 @@
               <div class="user-form-group">
                 
                 <form th:action="@{/confirmOtpRegister}" method="post" th:object="${user}" class="user-form" style="padding-left: 200px; padding-right: 200px;">
-                    <label for="otp" style="font-weight: 700;">Nhập mã OTP để kích hoạt tài khoản</label>
+                    <label for="otp" style="font-weight: 700;">Enter the OTP to activate the account</label>
                     <div class="form-group">
                         <div class="input-group">
                         <input type="text" hidden="hidden" th:field="*{email}" />
@@ -67,22 +67,22 @@
 						<input type="text" hidden="hidden" th:field="*{name}" />
 						
                         <input type="text" maxlength="6"
-                                placeholder="Mã xác thực OTP"
+                                placeholder="OTP verification code"
                                 name="otp" id="otp"
                                 class="form-control">
                         </div>
                     </div>
                   <div class="form-button">
-                    <button type="submit">Xác nhận</button>
+                    <button type="submit">Confirm</button>
                   </div>
                 </form>
               </div>
             </div>
             <div class="user-form-remind">
-              <p>Bạn đã có tài khoản?<a href="login.html">Đăng nhập tại đây</a></p>
+              <p>Do you already have an account?<a href="login.html">Sign in here</a></p>
             </div>
             <div class="user-form-footer">
-              <p>Greeny | &COPY; Developer by <a href="#">DongTHD</a></p>
+              <p>Vegetable Organic | &COPY; Developer by <a href="#">Our Group</a></p>
             </div>
           </div>
         </div>

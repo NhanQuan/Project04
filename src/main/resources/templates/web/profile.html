@@ -19,7 +19,7 @@
       name="keywords"
       content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"
     />
-    <title>Web bán hàng nông sản</title>
+    <title>Web selling agricultural products</title>
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
@@ -45,9 +45,9 @@
       class="inner-section single-banner"
       style="background: url(images/single-banner.jpg) no-repeat center">
       <div class="container">
-        <h2>thông tin tài khoản</h2>
+        <h2>Account Information</h2>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/}">Home Page</a></li>
           
         </ol>
       </div>
@@ -58,7 +58,7 @@
           <div class="col-lg-12">
             <div class="account-card">
               <div class="account-title">
-                <h4>Thông tin tài khoản</h4>
+                <h4>Account Information</h4>
               </div>
               <div class="account-content">
                 <div class="row">
@@ -71,7 +71,7 @@
                   </div>
                   <div class="col-md-6 col-lg-4">
                     <div class="form-group">
-                      <label class="form-label">Họ và tên</label>
+                      <label class="form-label">First and last name</label>
                       <input
                         class="form-control"
                         type="text"
@@ -81,7 +81,7 @@
                   </div>
                   <div class="col-md-6 col-lg-4">
                     <div class="form-group">
-                      <label class="form-label">Địa chỉ Email</label
+                      <label class="form-label">Email</label
                       ><input
                         class="form-control"
                         type="email"
@@ -97,7 +97,7 @@
           <div class="col-lg-12">
             <div class="account-card mb-0">
               <div class="account-title">
-                <h4>Lịch sử đặt hàng</h4>
+                <h4>Order history</h4>
               </div>
               
               <section class="inner-section checkout-part">
@@ -110,13 +110,13 @@
                             <table class="table-list">
                               <thead>
                                 <tr>
-                                  <th scope="col">Mã Order</th>
-                                  <th scope="col">Ngày đặt</th>
-                                  <th scope="col">Tổng tiền</th>
-                                  <th scope="col">Địa chỉ</th>
-                                  <th scope="col">Số điện thoại</th>
-                                  <th scope="col">Trạng thái</th>
-                                  <th scope="col">Hành động</th>
+                                  <th scope="col">Order Code</th>
+                                  <th scope="col">Booking date</th>
+                                  <th scope="col">Total money</th>
+                                  <th scope="col">Address</th>
+                                  <th scope="col">Phone</th>
+                                  <th scope="col">Status</th>
+                                  <th scope="col">Act</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -129,25 +129,25 @@
                                   <td class="table-status">
                                   	<div th:if="${item.status==0}">
 										<a style="cursor: pointer; color: #0e76a8;">
-											<i class="fa fa-check-circle"> Chờ xác nhận</i>
+											<i class="fa fa-check-circle"> Wait for confirmation</i>
 										</a>
 									</div>
 									
 									<div th:if="${item.status==1}">
 										<a style="cursor: pointer; color: #ffab10;">
-											<i class="fa fa-check-circle"> Đang giao hàng</i>
+											<i class="fa fa-check-circle">Delivery in progress</i>
 										</a>
 									</div>
 									
 									<div th:if="${item.status==2}">
 										<a style="cursor: pointer; color: #119744;">
-											<i class="fa fa-check-circle"> Đã thanh toán</i>
+											<i class="fa fa-check-circle"> Paid</i>
 										</a>
 									</div>
 									
 									<div th:if="${item.status==3}">
 										<a style="cursor: pointer; color: #ff3838;">
-											<i class="fa fa-check-circle"> Đã hủy</i>
+											<i class="fa fa-check-circle">Cancelled</i>
 										</a>
 									</div>
                                   </td>
@@ -231,14 +231,14 @@
 		            	<i class="icofont-close"></i>
 		          	</button>
 					<div class="modal-form">
-						<h5 class="modal-title">Xác nhận</h5>
+						<h5 class="modal-title">Confirm</h5>
 						<div class="modal-body">
 						<p>
-							Bạn có muốn huỷ đơn hàng có mã " <span style="color: #119744" id="idCancel"></span> " không ?
+                            Do you want to cancel an order with a code? " <span style="color: #119744" id="idCancel"></span> " are not ?
 						</p>
 					</div>
 					<div class="modal-footer">
-						<a id="yesOptionCanCel" type="button" class="btn btn-success">Có</a>
+						<a id="yesOptionCanCel" type="button" class="btn btn-success">Have</a>
 					</div>
 					</div>
 					
@@ -252,15 +252,15 @@
 			<div class="row align-items-center">
 				<div class="col-md-5 col-lg-6 col-xl-7">
 					<div class="news-text">
-						<h2>Nhận Chiết Khấu 20% Cho Người Đăng Ký</h2>
-						<p>Nhận Chiết Khấu 20% Cho Người Đăng Ký</p>
+						<h2>Receive 20% Discount For Subscribers</h2>
+						<p>Receive 20% Discount For Subscribers</p>
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-6 col-xl-5">
 					<form class="news-form">
-						<input type="text" placeholder="Nhập Địa Chỉ Email Của Bạn" />
+						<input type="text" placeholder="Enter Your Email" />
 						<button>
-							<span><i class="icofont-ui-email"></i>Gửi</span>
+							<span><i class="icofont-ui-email"></i>Send</span>
 						</button>
 					</form>
 				</div>
@@ -276,7 +276,7 @@
 							<i class="fas fa-truck"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Giao Hàng Tận Nhà Miễn Phí</h5>
+							<h5>Free Home Delivery</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -287,7 +287,7 @@
 							<i class="fas fa-sync-alt"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Chính Sách Hoàn Trả</h5>
+							<h5>Refund Policy</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -298,7 +298,7 @@
 							<i class="fas fa-headset"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Hệ Thống Hỗ Trợ</h5>
+							<h5>Support system</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
@@ -309,7 +309,7 @@
 							<i class="fas fa-lock"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Cách Thanh Toán An Toàn</h5>
+							<h5>Safe Payment Way</h5>
 							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
 						</div>
 					</div>
