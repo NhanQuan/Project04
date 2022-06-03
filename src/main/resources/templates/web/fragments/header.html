@@ -8,7 +8,8 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <body>
 
 	<th:block th:fragment= "header">
-	
+
+
 		<div class="backdrop"></div>
 		<a class="backtop fas fa-arrow-up" href="#"></a>
 		<div class="header-top">
@@ -22,9 +23,26 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 					<div class="col-md-5 col-lg-3">
 						<div class="header-top-select">
 							<div class="header-select">
-								<i class="icofont-world"></i><select class="select">
-									<option value="vietnam" selected>Việt Nam</option>
-								</select>
+								<div id="google_translate_element" style="background-color: #0cb94e">
+								</div>
+								<script async='async' type="text/javascript">
+									function googleTranslateElementInit() {
+										new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,vi,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+									}
+								</script>
+								<script async='async' src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+										type="text/javascript"></script>
+								<script>
+									function translateLanguage(lang) {
+										var $frame = $('.goog-te-menu-frame:first');
+										if (!$frame.size()) {
+											alert("Error: Could not find Google translate frame.");
+											return false;
+										}
+										$frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+										return false;
+									}
+								</script>
 							</div>
 							<div class="header-select">
 								<i class="icofont-money"></i><select class="select">

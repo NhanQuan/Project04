@@ -129,9 +129,14 @@
                 
               </div>
               <div class="details-action-group">
-                <a class="details-wish" href="javascript:void(0);" title="Yêu thích">
-                <i class="icofont-heart"></i>
-                <span>Add favorites</span></a>
+				  <th:block th:if="${user.email != null}">
+					  <a th:if="${product.favorite} == false"
+						 title="Yêu thích"
+						 th:href="@{/doFavoriteDetails(id=${product.productId})}"
+						 class="details-wish">
+						  <i class="icofont-heart"></i>
+						  <span>Add Favorite</span></a>
+				  </th:block>
               </div>
               
             </div>
