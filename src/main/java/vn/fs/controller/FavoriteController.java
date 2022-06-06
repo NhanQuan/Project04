@@ -57,7 +57,8 @@ public class FavoriteController extends CommomController {
 		product.setFavorite(true);
 		favoriteRepository.save(favorite);
 		commomDataService.commonData(model, user);
-		return "redirect:/productDetail?id="+ product.getProductId();
+//		return "redirect:/productDetail?id="+ product.getProductId();
+		return "redirect:/products";
 	}
 
 	@GetMapping(value = "/doUnFavorite")

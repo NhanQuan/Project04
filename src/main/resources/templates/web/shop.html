@@ -44,7 +44,7 @@
       class="inner-section single-banner"
       style="background: url(images/single-banner.jpg) no-repeat center">
       <div class="container">
-        <h2>Sản phẩm</h2>
+        <h2>Product</h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a th:href="@{/}">Home Page</a>
@@ -91,7 +91,9 @@
                 <div class="product-card">
                   <div class="product-media">
                     <div class="product-label">
-                      <label class="label-text sale">- [[${item.discount + '%'}]]</label>
+						<th:block th:if="${item.discount}!=0">
+
+						<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
                     </div>
                    
                    		<th:block th:if="${user.email != null}">
@@ -165,7 +167,9 @@
                       <a href="javascript:void(0);">[[${item.productName}]]</a>
                     </h6>
                     <h6 class="product-price">
-                      <del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del>
+						<th:block th:if="${item.discount}!=0">
+
+						<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
                       <span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
                     </h6>
                     
