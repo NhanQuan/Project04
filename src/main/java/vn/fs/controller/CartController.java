@@ -175,7 +175,7 @@ public class CartController extends CommomController {
 			String cancelUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_CANCEL;
 			String successUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_SUCCESS;
 			try {
-				totalPrice = totalPrice / 22;
+				totalPrice = totalPrice / 23000;
 				Payment payment = paypalService.createPayment(totalPrice, "USD", PaypalPaymentMethod.paypal,
 						PaypalPaymentIntent.sale, "payment description", cancelUrl, successUrl);
 				for (Links links : payment.getLinks()) {
