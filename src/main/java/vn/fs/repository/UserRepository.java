@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import vn.fs.entities.User;
 
+import java.util.Optional;
+
 /**
  * @author DongTHD
  *
@@ -13,5 +15,9 @@ import vn.fs.entities.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByEmail(String email);
+	Optional<User> findByNameOrEmail(String name, String email);
+	Optional<User> findByName(String name);
+	Boolean existsByName(String name);
+	Boolean existsByEmail(String email);
 
 }

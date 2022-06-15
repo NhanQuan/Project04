@@ -115,7 +115,8 @@
                    
                         <a class="product-image" href="javascript:void(0);">
                             <img th:src="@{'/loadImage?imageName='+${item.productImage}}" alt="product"/>
-                        </a>
+
+						</a>
                     <div class="product-widget">
                     
                     	<th:block href="/login" th:if="${user.email == null}">

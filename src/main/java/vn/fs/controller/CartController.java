@@ -25,8 +25,8 @@ import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
 
 import vn.fs.commom.CommomDataService;
-import vn.fs.config.PaypalPaymentIntent;
-import vn.fs.config.PaypalPaymentMethod;
+import vn.fs.ApiController.config.PaypalPaymentIntent;
+import vn.fs.ApiController.config.PaypalPaymentMethod;
 import vn.fs.entities.CartItem;
 import vn.fs.entities.Order;
 import vn.fs.entities.OrderDetail;

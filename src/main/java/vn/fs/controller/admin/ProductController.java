@@ -43,6 +43,8 @@ public class ProductController{
 	
 	@Value("${upload.path}")
 	private String pathUploadImage;
+	@Value("${E:\\project sem 4\\Project\\AndroidTest\\VegetableOrganic\\app\\src\\main\\res\\drawable}")
+	private String pathUploadImageAdroid;
 
 	@Autowired
 	ProductRepository productRepository;
@@ -96,8 +98,12 @@ public class ProductController{
 		try {
 
 			File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
+			File convFileAndroid = new File(pathUploadImageAdroid + "\\" + file.getOriginalFilename());
+			FileOutputStream fos1 = new FileOutputStream(convFileAndroid);
+			fos1.write(file.getBytes());
 			FileOutputStream fos = new FileOutputStream(convFile);
 			fos.write(file.getBytes());
+			fos1.close();
 			fos.close();
 		} catch (IOException e) {
 
