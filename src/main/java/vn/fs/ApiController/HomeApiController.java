@@ -1,16 +1,17 @@
 package vn.fs.ApiController;
 
+import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vn.fs.entities.Product;
 import vn.fs.entities.ResponseObject;
 import vn.fs.repository.ProductRepository;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,12 +20,31 @@ import java.util.Optional;
 public class HomeApiController {
     @Autowired
     private ProductRepository productRepository;
-
+    @Value("${upload.path}")
+    private String pathUploadImage;
     @GetMapping("")
     List<Product> getAllProduct(){
         return productRepository.findAll();
     }
-
+    @GetMapping(value = "/loadImage/{imageName}")
+    @ResponseBody
+    public byte[] index(@PathVariable String imageName, HttpServletResponse response)
+            throws IOException {
+        response.setContentType("image/jpeg");
+        File file = new File(pathUploadImage + File.separatorChar + imageName);
+        InputStream inputStream = null;
+        if (file.exists()) {
+            try {
+                inputStream = new FileInputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (inputStream != null) {
+                return IOUtils.toByteArray(inputStream);
+            }
+        }
+        return IOUtils.toByteArray(inputStream);
+    }
     //getDetailProduct
     @GetMapping("/{productId}")
     ResponseEntity<ResponseObject> ProductDetail(@PathVariable Long productId){

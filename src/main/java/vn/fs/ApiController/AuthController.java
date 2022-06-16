@@ -38,13 +38,18 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostMapping("/signin")
-    public ResponseEntity<String> authenticateUser(@RequestBody LoginDto loginDto){
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                loginDto.getNameOrEmail(), loginDto.getPassword()));
+    @PostMapping("/login")
+    public ResponseEntity<User> loginApi(@RequestBody LoginDto loginDto){
+        User user = userRepository.findByEmail(loginDto.getNameOrEmail());
+        if(user != null){
+            Authentication authentication = authenticationManager.authenticate(new
+                    UsernamePasswordAuthenticationToken(
+                    loginDto.getNameOrEmail(), loginDto.getPassword()));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            return ResponseEntity.status(HttpStatus.OK).body(user);
+        }
+        return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("/signup")
