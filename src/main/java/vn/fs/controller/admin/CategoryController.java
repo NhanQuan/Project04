@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.fs.entities.Category;
+import vn.fs.entities.Menu;
 import vn.fs.entities.User;
 import vn.fs.repository.CategoryRepository;
+import vn.fs.repository.MenuRepository;
 import vn.fs.repository.UserRepository;
 
 
@@ -28,7 +30,8 @@ import vn.fs.repository.UserRepository;
 @Controller
 @RequestMapping("/admin")
 public class CategoryController {
-
+	@Autowired
+	MenuRepository menuRepository;
 	@Autowired
 	CategoryRepository categoryRepository;
 
@@ -74,8 +77,8 @@ public class CategoryController {
 
 			return "admin/categories";
 		}
-
 		categoryRepository.save(category);
+//		menuRepository.save(menu);
 		model.addAttribute("message", "successful!");
 
 		return "redirect:/admin/categories";

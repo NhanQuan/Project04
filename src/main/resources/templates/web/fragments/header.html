@@ -127,6 +127,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 										<li th:each="item : ${categoryList}">
 											<a th:href="@{/productByCategory(id=${item.categoryId})}">[[${item.categoryName}]]</a>
 										</li>
+
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
