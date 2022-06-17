@@ -2,10 +2,7 @@ package vn.fs.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * @author DongTHD
- *
- */
+
 public class Utils {
 
 	public static String getBaseURL(HttpServletRequest request) {

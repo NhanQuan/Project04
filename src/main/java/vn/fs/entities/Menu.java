@@ -18,5 +18,5 @@ public class Menu implements Serializable {
     private Long menu_id;
     private String menu_image;
     private String menu_name;
-    
+
 }
