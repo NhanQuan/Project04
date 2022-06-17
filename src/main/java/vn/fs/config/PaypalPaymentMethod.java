@@ -1,4 +1,4 @@
-package vn.fs.ApiController.config;
+package vn.fs.config;
 
 public enum PaypalPaymentMethod {
 	credit_card, paypal

@@ -1,4 +1,4 @@
-package vn.fs.ApiController.config;
+package vn.fs.config;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

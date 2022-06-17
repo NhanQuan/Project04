@@ -1,4 +1,4 @@
-package vn.fs.ApiController.config;
+package vn.fs.config;
 
 import java.util.HashMap;
 import java.util.Map;

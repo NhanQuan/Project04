@@ -15,8 +15,8 @@ import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 
-import vn.fs.ApiController.config.PaypalPaymentIntent;
-import vn.fs.ApiController.config.PaypalPaymentMethod;
+import vn.fs.config.PaypalPaymentIntent;
+import vn.fs.config.PaypalPaymentMethod;
 
 /**
  * @author DongTHD
