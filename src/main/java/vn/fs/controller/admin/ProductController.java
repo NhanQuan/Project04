@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,17 +27,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import vn.fs.dto.OrderExcelExporter;
+import vn.fs.dto.ProductExcelExporter;
 import vn.fs.entities.Category;
+import vn.fs.entities.Order;
 import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.CategoryRepository;
 import vn.fs.repository.ProductRepository;
 import vn.fs.repository.UserRepository;
+import vn.fs.service.OrderDetailService;
+import vn.fs.service.ProductDetailService;
 
-/**
- * @author DongTHD
- *
- */
+
 @Controller
 @RequestMapping("/admin")
 public class ProductController{
@@ -45,7 +48,8 @@ public class ProductController{
 	private String pathUploadImage;
 	@Value("${E:\\project sem 4\\Project\\AndroidTest\\VegetableOrganic\\app\\src\\main\\res\\drawable}")
 	private String pathUploadImageAdroid;
-
+	@Autowired
+	ProductDetailService ProDetailService;
 	@Autowired
 	ProductRepository productRepository;
 
@@ -148,7 +152,22 @@ public class ProductController{
 
 		return "redirect:/admin/products";
 	}
+	// to excel
+	@GetMapping(value = "/export1")
+	public void exportToExcel(HttpServletResponse response) throws IOException {
 
+		response.setContentType("application/octet-stream");
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachement; filename=products.xlsx";
+
+		response.setHeader(headerKey, headerValue);
+
+		List<Product> lisProducts = ProDetailService.listAll();
+
+		ProductExcelExporter excelExporter = new ProductExcelExporter(lisProducts);
+		excelExporter.export(response);
+
+	}
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

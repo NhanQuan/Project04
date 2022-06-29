@@ -53,29 +53,33 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@RequestBody SignUpDto signUpDto){
+    public ResponseEntity<SignUpDto> registerUser(@RequestBody SignUpDto signUpDto){
 
         // add check for username exists in a DB
         if(userRepository.existsByName(signUpDto.getName())){
-            return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         // add check for email exists in DB
         if(userRepository.existsByEmail(signUpDto.getEmail())){
-            return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
         int random_otp = (int) Math.floor(Math.random() * (999999 - 100000 + 1) + 100000);
+        //so sanh otp tai vi api ko luu duoc secsion
+        signUpDto.setAvatar(String.valueOf(random_otp));
         String body = "<div>\r\n" + "<h3>Mã xác thực OTP của bạn là: <span style=\"color:#119744; font-weight: bold;\">"
                 + random_otp + "</span></h3>\r\n" + "</div>";
         sendMailService.queue(signUpDto.getEmail(), "Đăng kí tài khoản", body);
 
 
-        return new ResponseEntity<>("OTP send", HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK).body(signUpDto);
+
 
     }
     @PostMapping("/signupConfim/{otp}")
-    public ResponseEntity<?> registerUserConfim(@RequestBody SignUpDto signUpDto, @PathVariable String otp){
-
-        if (otp.equals(String.valueOf(otp))) {
+    public ResponseEntity<SignUpDto> registerUserConfim(@RequestBody SignUpDto signUpDto, @PathVariable int otp){
+        //anh xa opt tu randomaotp xuong
+        if (otp == Integer.parseInt(signUpDto.getAvatar())) {
             // create user object
             User user = new User();
             user.setName(signUpDto.getName());
@@ -88,8 +92,9 @@ public class AuthController {
             user.setRoles(Collections.singleton(roles));
             userRepository.save(user);
 
-            return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
+            return ResponseEntity.status(HttpStatus.OK).body(signUpDto);
         }
-        return new ResponseEntity<>("User registered Fail", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
 }

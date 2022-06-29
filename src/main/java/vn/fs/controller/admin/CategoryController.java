@@ -23,10 +23,7 @@ import vn.fs.repository.MenuRepository;
 import vn.fs.repository.UserRepository;
 
 
-/**
- * @author DongTHD
- *
- */
+
 @Controller
 @RequestMapping("/admin")
 public class CategoryController {

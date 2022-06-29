@@ -142,16 +142,25 @@ public class CartApiController {
         }
 
         // sendMail
-        commomDataService.sendSimpleEmail(email, "Greeny-Shop Xác Nhận Đơn hàng", "aaaa", cartItems,
+        commomDataService.sendSimpleEmail(email, "VegetableOrganic-Shop Xác Nhận Đơn hàng", "aaaa", cartItems,
                 totalPrice, order);
         shoppingCartService.clear();
         if (cartItems != null) {
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("Ok", "Order succes", "hhhh"));
+                    new ResponseObject("Ok", "Order succes","hhhh"));
 
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                 new ResponseObject("Ok", "F succes", "hhhh"));
 
     }
+    @GetMapping("/clear")
+    ResponseEntity<ResponseObject> clear() {
+        shoppingCartService.clear();
+
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("Ok", "Clear succes", "hhhh"));
+
+    }
+
 }
