@@ -58,6 +58,7 @@
 										<span class="sub-item">Quản Lý Thể Loại</span>
 									</a>
 								</li>
+
 								<li>
 									<a th:href="@{/admin/products}">
 										<span class="sub-item">Quản Lý Sản Phẩm</span>
@@ -72,6 +73,30 @@
 									<a th:href="@{/admin/users}">
 										<span class="sub-item">Quản Lý Khách Hàng</span>
 									</a>
+								</li>
+								<li>
+									<span class="sub-item">
+									<div id="google_translate_element" style="background-color: #0cb94e">
+									</div>
+									<script async='async' type="text/javascript">
+										function googleTranslateElementInit() {
+											new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,vi,zh-CN,ar,sq,am,hy,pl,bn,az', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+										}
+									</script>
+									<script async='async' src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+											type="text/javascript"></script>
+									<script>
+										function translateLanguage(lang) {
+											var $frame = $('.goog-te-menu-frame:first');
+											if (!$frame.size()) {
+												alert("Error: Could not find Google translate frame.");
+												return false;
+											}
+											$frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+											return false;
+										}
+									</script>
+										</span>
 								</li>
 							</ul>
 						</div>
