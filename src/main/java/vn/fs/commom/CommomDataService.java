@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import vn.fs.dto.Mailsup;
 import vn.fs.entities.CartItem;
 import vn.fs.entities.Order;
 import vn.fs.entities.User;
@@ -89,6 +90,29 @@ public class CommomDataService {
 		// Create the HTML body
 		String htmlContent = "";
 		htmlContent = templateEngine.process("mail/email_en.html", ctx);
+		mimeMessageHelper.setText(htmlContent, true);
+
+		// Send Message!
+		emailSender.send(mimeMessage);
+
+	}
+
+	//sendEmail Support
+	public void sendEmailSupport(String email, String subject, Mailsup mailsup) throws MessagingException {
+		Locale locale = LocaleContextHolder.getLocale();
+
+		// Prepare the evaluation context
+		Context ctx = new Context(locale);
+		ctx.setVariable("mailsup", mailsup);
+
+		// Prepare message using a Spring helper
+		MimeMessage mimeMessage = emailSender.createMimeMessage();
+		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, "UTF-8");
+		mimeMessageHelper.setSubject(subject);
+		mimeMessageHelper.setTo(email);
+		// Create the HTML body
+		String htmlContent = "";
+		htmlContent = templateEngine.process("mail/email_sup.html", ctx);
 		mimeMessageHelper.setText(htmlContent, true);
 
 		// Send Message!

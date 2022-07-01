@@ -1,6 +1,7 @@
 package vn.fs.controller;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import vn.fs.entities.Role;
 import vn.fs.entities.User;
+import vn.fs.repository.RoleRepository;
 import vn.fs.repository.UserRepository;
 import vn.fs.service.SendMailService;
 
@@ -29,6 +31,8 @@ import vn.fs.service.SendMailService;
 @Controller
 public class RegisterController {
 
+	@Autowired
+	RoleRepository roleRepository;
 	@Autowired
 	UserRepository userRepository;
 
@@ -78,7 +82,9 @@ public class RegisterController {
 			dto.setRegisterDate(new Date());
 			dto.setStatus(true);
 			dto.setAvatar("user.png");
-			dto.setRoles(Arrays.asList(new Role("ROLE_USER")));
+//			dto.setRoles(Arrays.asList(new Role("ROLE_USER")));
+			Role roles = roleRepository.findByName("ROLE_USER").get();
+			dto.setRoles(Collections.singleton(roles));
 			userRepository.save(dto);
 
 			session.removeAttribute("otp");
