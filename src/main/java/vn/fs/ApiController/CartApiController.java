@@ -49,8 +49,7 @@ public class CartApiController {
     private ProductRepository productRepository;
     public Order orderFinal = new Order();
 
-    public static final String URL_PAYPAL_SUCCESS = "pay/success";
-    public static final String URL_PAYPAL_CANCEL = "pay/cancel";
+
     private Logger log = LoggerFactory.getLogger(getClass());
     @GetMapping("/{productId}")
     ResponseEntity<ResponseObject> addToCart(@PathVariable Long productId ){

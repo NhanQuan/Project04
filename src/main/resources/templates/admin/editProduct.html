@@ -6,7 +6,7 @@
 	<title>Greeny - Trang quản trị</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="/assets/img/icon.ico" type="image/x-icon"/>
-	
+
 	<!-- Fonts and icons -->
 	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
@@ -26,19 +26,19 @@
 	<link rel="stylesheet" href="/assets/css/demo.css">
 </head>
 <body>
-	<div class="wrapper">
+<div class="wrapper">
 	<!-- Header -->
-	
+
 	<th:block th:replace="~{admin/fragments/header :: header}"></th:block>
-	
+
 	<!-- End Header -->
-	
+
 	<!-- Navbar -->
-	
+
 	<th:block th:replace="~{admin/fragments/navbar :: navbar}"></th:block>
-	
+
 	<!-- End Navbar -->
-	
+
 	<div class="main-panel">
 		<div class="content">
 			<div class="page-inner">
@@ -64,18 +64,19 @@
 						</li>
 					</ul>
 				</div>
-					<div class="col-md-12">
-						<div class="card">
-							<div class="card-header">
-								<div class="d-flex align-items-center">
-									<h4 class="card-title" style="text-decoration: underline;">Quản lý sản phẩm</h4>
-								</div>
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title" style="text-decoration: underline;">Quản lý sản phẩm</h4>
 							</div>
-							<div class="card-header">
-								<section class="row">
-						           <div class="col-9 offset-1">
-						             <form th:action="@{/admin/addProduct}" th:object="${product}" method="post" enctype="multipart/form-data">
+						</div>
+						<div class="card-header">
+							<section class="row">
+								<div class="col-9 offset-1">
+									<form th:action="@{/admin/editProduct}" th:object="${product}" method="post" enctype="multipart/form-data">
 										<div class="row">
+											<input th:field="*{productId}" id="productId" hidden>
 											<div class="col-sm-12">
 												<div class="form-group form-group-default">
 													<label>Tên sản phẩm</label>
@@ -86,10 +87,10 @@
 												<div class="form-group form-group-default">
 													<label>Thể loại</label>
 													<select class="form-control"
-														 name="category" th:field="*{category.categoryId}" id="categoryId">
+															name="category" th:field="*{category.categoryId}" id="categoryId">
 														<option th:each="item : ${categoryList}"
-		  													th:value="${item.categoryId}" th:text="${item.categoryName}"
-															th:selected="${item.categoryId == product.category.categoryId}">
+																th:value="${item.categoryId}" th:text="${item.categoryName}"
+																th:selected="${item.categoryId == product.category.categoryId}">
 															Category Name
 														</option>
 													</select>
@@ -137,21 +138,21 @@
 											<button type="submit" class="btn btn-danger" data-dismiss="modal" formaction="/admin/products" formmethod="get">Hủy</button>
 										</div>
 									</form>
-						           </div>
-								</section>
-							</div>
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
 			</div>
-		
+		</div>
+
 		<footer class="footer">
 			<div class="container-fluid">
 				<nav class="pull-left">
 					<ul class="nav">
 						<li class="nav-item">
 							<a class="nav-link" href="javascript:void(0);">
-								GREENY-SHOP
+								Vegetable -Organic
 							</a>
 						</li>
 						<li class="nav-item">
@@ -167,31 +168,31 @@
 					</ul>
 				</nav>
 				<div class="copyright ml-auto">
-					2021, made with <i class="fa fa-heart heart text-danger"></i> by <a href="javascript:void(0);">GREENY-SHOP</a>
-				</div>				
+					2021, made with <i class="fa fa-heart heart text-danger"></i> by <a href="javascript:void(0);">Vegetable -Organic</a>
+				</div>
 			</div>
 		</footer>
 	</div>
-	
-	
-	
 
-	</div>
-	<!--   Core JS Files   -->
-	<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
-	<script src="/assets/js/core/popper.min.js"></script>
-	<script src="/assets/js/core/bootstrap.min.js"></script>
-	<!-- jQuery UI -->
-	<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-	
-	<!-- jQuery Scrollbar -->
-	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-	<!-- Datatables -->
-	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
-	<!-- Atlantis JS -->
-	<script src="/assets/js/atlantis.min.js"></script>
-	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="/assets/js/setting-demo2.js"></script>
+
+
+
+</div>
+<!--   Core JS Files   -->
+<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<!-- Datatables -->
+<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
+<!-- Atlantis JS -->
+<script src="/assets/js/atlantis.min.js"></script>
+<!-- Atlantis DEMO methods, don't include it in your project! -->
+<script src="/assets/js/setting-demo2.js"></script>
 </body>
 </html>

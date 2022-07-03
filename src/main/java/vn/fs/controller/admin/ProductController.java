@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,38 +26,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import vn.fs.dto.OrderExcelExporter;
-import vn.fs.dto.ProductExcelExporter;
 import vn.fs.entities.Category;
-import vn.fs.entities.Order;
 import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.CategoryRepository;
 import vn.fs.repository.ProductRepository;
 import vn.fs.repository.UserRepository;
-import vn.fs.service.OrderDetailService;
-import vn.fs.service.ProductDetailService;
 
-
+/**
+ * @author DongTHD
+ *
+ */
 @Controller
 @RequestMapping("/admin")
 public class ProductController{
-	
+
 	@Value("${upload.path}")
 	private String pathUploadImage;
-	@Value("${E:\\project sem 4\\Project\\AndroidTest\\VegetableOrganic\\app\\src\\main\\res\\drawable}")
-	private String pathUploadImageAdroid;
-	@Autowired
-	ProductDetailService ProDetailService;
+
 	@Autowired
 	ProductRepository productRepository;
 
 	@Autowired
 	CategoryRepository categoryRepository;
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@ModelAttribute(value = "user")
 	public User user(Model model, Principal principal, User user) {
 
@@ -72,7 +66,7 @@ public class ProductController{
 	}
 
 	public ProductController(CategoryRepository categoryRepository,
-			ProductRepository productRepository) {
+							 ProductRepository productRepository) {
 		this.productRepository = productRepository;
 		this.categoryRepository = categoryRepository;
 	}
@@ -97,22 +91,15 @@ public class ProductController{
 	// add product
 	@PostMapping(value = "/addProduct")
 	public String addProduct(@ModelAttribute("product") Product product, ModelMap model,
-			@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
+							 @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
 
 		try {
-
 			File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
-			File convFileAndroid = new File(pathUploadImageAdroid + "\\" + file.getOriginalFilename());
-			FileOutputStream fos1 = new FileOutputStream(convFileAndroid);
-			fos1.write(file.getBytes());
 			FileOutputStream fos = new FileOutputStream(convFile);
 			fos.write(file.getBytes());
-			fos1.close();
 			fos.close();
 		} catch (IOException e) {
-
 		}
-
 		product.setProductImage(file.getOriginalFilename());
 		Product p = productRepository.save(product);
 		if (null != p) {
@@ -133,15 +120,43 @@ public class ProductController{
 
 		return categoryList;
 	}
-	
+
 	// get Edit brand
 	@GetMapping(value = "/editProduct/{id}")
 	public String editCategory(@PathVariable("id") Long id, ModelMap model) {
 		Product product = productRepository.findById(id).orElse(null);
-		
+
 		model.addAttribute("product", product);
 
 		return "admin/editProduct";
+	}
+	// edit product
+	@PostMapping(value = "/editProduct")
+	public String editProduct(@ModelAttribute("product") Product p, ModelMap model,
+							  @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
+		Product product = productRepository.findById(p.getProductId()).orElse(null);
+
+		if(file.isEmpty()){
+			p.setProductImage(product.getProductImage());
+		}else {
+			try {
+				File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
+				FileOutputStream fos = new FileOutputStream(convFile);
+				fos.write(file.getBytes());
+				fos.close();
+			} catch (IOException e) {
+			}
+			p.setProductImage(file.getOriginalFilename());
+		}
+		productRepository.save(p);
+		if (null != p) {
+			model.addAttribute("message", "Update success");
+			model.addAttribute("product", p);
+		} else {
+			model.addAttribute("message", "Update failure");
+			model.addAttribute("product", p);
+		}
+		return "redirect:/admin/products";
 	}
 
 	// delete category
@@ -152,22 +167,7 @@ public class ProductController{
 
 		return "redirect:/admin/products";
 	}
-	// to excel
-	@GetMapping(value = "/export1")
-	public void exportToExcel(HttpServletResponse response) throws IOException {
 
-		response.setContentType("application/octet-stream");
-		String headerKey = "Content-Disposition";
-		String headerValue = "attachement; filename=products.xlsx";
-
-		response.setHeader(headerKey, headerValue);
-
-		List<Product> lisProducts = ProDetailService.listAll();
-
-		ProductExcelExporter excelExporter = new ProductExcelExporter(lisProducts);
-		excelExporter.export(response);
-
-	}
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
