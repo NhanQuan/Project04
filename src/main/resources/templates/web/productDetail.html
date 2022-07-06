@@ -200,7 +200,7 @@
 				                    </th:block>
 									
 									<a class="product-image"
-										href="javascript:void(0);">
+									   th:href="@{/productDetail(id=${item.productId})}">
 										<img th:src="@{'/loadImage?imageName='+${item.productImage}}" alt="product" />
 									</a>
 									<div class="product-widget">
