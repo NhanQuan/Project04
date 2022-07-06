@@ -127,7 +127,7 @@ public class OrderController {
 		List<OrderDetail> listDe = orderDetailRepository.findByOrderId(id);
 		for (OrderDetail od : listDe) {
 			p = od.getProduct();
-			p.setQuantity(p.getQuantity() - od.getQuantity());
+			p.setQuantity(p.getQuantity() - od.getQuantitydetail());
 			productRepository.save(p);
 		}
 

@@ -51,8 +51,8 @@ public class CartApiController {
 
 
     private Logger log = LoggerFactory.getLogger(getClass());
-    @GetMapping("/{productId}")
-    ResponseEntity<ResponseObject> addToCart(@PathVariable Long productId ){
+    @GetMapping("/{productId}/{quantity}")
+    ResponseEntity<ResponseObject> addToCart(@PathVariable Long productId, @PathVariable int quantity){
         Product foundProduct = productRepository.findById(productId).orElse(null);
 
 
@@ -64,7 +64,7 @@ public class CartApiController {
             item.setName(foundProduct.getProductName());
             item.setUnitPrice(foundProduct.getPrice());
 
-            item.setQuantity(1);
+            item.setQuantity(quantity);
             item.setProduct(foundProduct);
             item.setId(productId);
             shoppingCartService.add(item);
@@ -132,11 +132,11 @@ public class CartApiController {
 
         for (CartItem cartItem : cartItems) {
             OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setQuantity(cartItem.getQuantity());
+            orderDetail.setQuantitydetail(cartItem.getQuantity());
             orderDetail.setOrder(order);
             orderDetail.setProduct(cartItem.getProduct());
             double unitPrice = cartItem.getProduct().getPrice();
-            orderDetail.setPrice(unitPrice);
+            orderDetail.setPricedetail(unitPrice);
             orderDetailRepository.save(orderDetail);
         }
 

@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +31,7 @@ import vn.fs.entities.Category;
 import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.CategoryRepository;
+import vn.fs.repository.OrderDetailRepository;
 import vn.fs.repository.ProductRepository;
 import vn.fs.repository.UserRepository;
 
@@ -46,7 +48,8 @@ public class ProductController{
 
 	@Autowired
 	ProductRepository productRepository;
-
+	@Autowired
+	OrderDetailRepository orderDetailRepository;
 	@Autowired
 	CategoryRepository categoryRepository;
 
@@ -93,23 +96,33 @@ public class ProductController{
 	public String addProduct(@ModelAttribute("product") Product product, ModelMap model,
 							 @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
 
-		try {
-			File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
-			FileOutputStream fos = new FileOutputStream(convFile);
-			fos.write(file.getBytes());
-			fos.close();
-		} catch (IOException e) {
-		}
-		product.setProductImage(file.getOriginalFilename());
-		Product p = productRepository.save(product);
-		if (null != p) {
-			model.addAttribute("message", "Update success");
+		if(productRepository.ProductName(product.getProductName()).isEmpty()){
+			try {
+				File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
+				FileOutputStream fos = new FileOutputStream(convFile);
+				fos.write(file.getBytes());
+				fos.close();
+			} catch (IOException e) {
+			}
+			product.setProductImage(file.getOriginalFilename());
+			product.setEnteredDate(new Date());
+			Product p = productRepository.save(product);
+			if (null != p) {
+				model.addAttribute("message", "Add success");
+				model.addAttribute("product", product);
+				return "redirect:/admin/products";
+
+			} else {
+				model.addAttribute("error", "Add failure");
+				model.addAttribute("product", product);
+				return "redirect:/admin/products";
+			}
+		}else {
+			model.addAttribute("error", "Product already exists ");
 			model.addAttribute("product", product);
-		} else {
-			model.addAttribute("message", "Update failure");
-			model.addAttribute("product", product);
+			return "admin/products";
 		}
-		return "redirect:/admin/products";
+
 	}
 
 	// show select option ở add product
@@ -135,27 +148,26 @@ public class ProductController{
 	public String editProduct(@ModelAttribute("product") Product p, ModelMap model,
 							  @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
 		Product product = productRepository.findById(p.getProductId()).orElse(null);
-
-		if(file.isEmpty()){
-			p.setProductImage(product.getProductImage());
-		}else {
-			try {
-				File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
-				FileOutputStream fos = new FileOutputStream(convFile);
-				fos.write(file.getBytes());
-				fos.close();
-			} catch (IOException e) {
+			if (file.isEmpty()) {
+				p.setProductImage(product.getProductImage());
+			} else {
+				try {
+					File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
+					FileOutputStream fos = new FileOutputStream(convFile);
+					fos.write(file.getBytes());
+					fos.close();
+				} catch (IOException e) {
+				}
+				p.setProductImage(file.getOriginalFilename());
 			}
-			p.setProductImage(file.getOriginalFilename());
-		}
-		productRepository.save(p);
-		if (null != p) {
-			model.addAttribute("message", "Update success");
-			model.addAttribute("product", p);
-		} else {
-			model.addAttribute("message", "Update failure");
-			model.addAttribute("product", p);
-		}
+			productRepository.save(p);
+			if (null != p) {
+				model.addAttribute("message", "Update success");
+				model.addAttribute("product", p);
+			} else {
+				model.addAttribute("message", "Update failure");
+				model.addAttribute("product", p);
+			}
 		return "redirect:/admin/products";
 	}
 

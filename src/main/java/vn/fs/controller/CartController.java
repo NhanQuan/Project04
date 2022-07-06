@@ -201,11 +201,11 @@ public class CartController extends CommomController {
 
 		for (CartItem cartItem : cartItems) {
 			OrderDetail orderDetail = new OrderDetail();
-			orderDetail.setQuantity(cartItem.getQuantity());
+			orderDetail.setQuantitydetail(cartItem.getQuantity());
 			orderDetail.setOrder(order);
 			orderDetail.setProduct(cartItem.getProduct());
 			double unitPrice = cartItem.getProduct().getPrice();
-			orderDetail.setPrice(unitPrice);
+			orderDetail.setPricedetail(unitPrice);
 			orderDetailRepository.save(orderDetail);
 		}
 
@@ -251,11 +251,11 @@ public class CartController extends CommomController {
 
 				for (CartItem cartItem : cartItems) {
 					OrderDetail orderDetail = new OrderDetail();
-					orderDetail.setQuantity(cartItem.getQuantity());
+					orderDetail.setQuantitydetail(cartItem.getQuantity());
 					orderDetail.setOrder(orderFinal);
 					orderDetail.setProduct(cartItem.getProduct());
 					double unitPrice = cartItem.getProduct().getPrice();
-					orderDetail.setPrice(unitPrice);
+					orderDetail.setPricedetail(unitPrice);
 					orderDetailRepository.save(orderDetail);
 				}
 

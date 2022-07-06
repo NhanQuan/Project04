@@ -29,8 +29,8 @@ public class OrderDetail implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderDetailId;
-	private int quantity;
-	private Double price;
+	private int quantitydetail;
+	private Double pricedetail;
 	
 	@ManyToOne
 	@JoinColumn(name = "productId")
@@ -39,4 +39,5 @@ public class OrderDetail implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "orderId")
 	private Order order;
+
 }
