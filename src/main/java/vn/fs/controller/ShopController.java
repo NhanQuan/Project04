@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -135,25 +136,41 @@ public class ShopController extends CommomController {
 		List<Product> listProductNew = new ArrayList<>();
 
 		for (Product product : products) {
-
 			Product productEntity = new Product();
-
 			BeanUtils.copyProperties(product, productEntity);
-
 			Favorite save = favoriteRepository.selectSaves(productEntity.getProductId(), user.getUserId());
-
 			if (save != null) {
 				productEntity.favorite = true;
 			} else {
 				productEntity.favorite = false;
 			}
 			listProductNew.add(productEntity);
-
 		}
-
 		model.addAttribute("products", listProductNew);
 		commomDataService.commonData(model, user);
 		return "web/shop";
 	}
+	// list books by category
+	@GetMapping(value = "/productByPrice")
+	public String listProductbyprice(Model model, @Param("from") String from, @Param("to") String to, User user) {
 
+		List<Product> products = productRepository.searchPrice(Integer.parseInt(from),Integer.parseInt(to));
+
+		List<Product> listProductNew = new ArrayList<>();
+
+		for (Product product : products) {
+			Product productEntity = new Product();
+			BeanUtils.copyProperties(product, productEntity);
+			Favorite save = favoriteRepository.selectSaves(productEntity.getProductId(), user.getUserId());
+			if (save != null) {
+				productEntity.favorite = true;
+			} else {
+				productEntity.favorite = false;
+			}
+			listProductNew.add(productEntity);
+		}
+		model.addAttribute("products", listProductNew);
+		commomDataService.commonData(model, user);
+		return "web/shop";
+	}
 }
