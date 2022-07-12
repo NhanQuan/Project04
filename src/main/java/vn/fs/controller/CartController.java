@@ -158,20 +158,15 @@ public class CartController extends CommomController {
 	@Transactional
 	public String checkedOut(Model model, Order order, HttpServletRequest request, User user)
 			throws MessagingException {
-
 		String checkOut = request.getParameter("checkOut");
-
 		Collection<CartItem> cartItems = shoppingCartService.getCartItems();
-
 		double totalPrice = 0;
 		for (CartItem cartItem : cartItems) {
 			double price = cartItem.getQuantity() * cartItem.getProduct().getPrice();
 			totalPrice += price - (price * cartItem.getProduct().getDiscount() / 100);
 		}
-
 		BeanUtils.copyProperties(order, orderFinal);
 		if (StringUtils.equals(checkOut, "paypal")) {
-
 			String cancelUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_CANCEL;
 			String successUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_SUCCESS;
 			try {
@@ -186,9 +181,7 @@ public class CartController extends CommomController {
 			} catch (PayPalRESTException e) {
 				log.error(e.getMessage());
 			}
-
 		}
-
 		session = request.getSession();
 		Date date = new Date();
 		order.setOrderDate(date);
@@ -200,6 +193,7 @@ public class CartController extends CommomController {
 		orderRepository.save(order);
 
 		for (CartItem cartItem : cartItems) {
+			//save detail
 			OrderDetail orderDetail = new OrderDetail();
 			orderDetail.setQuantitydetail(cartItem.getQuantity());
 			orderDetail.setOrder(order);
@@ -274,7 +268,6 @@ public class CartController extends CommomController {
 		}
 		return "redirect:/";
 	}
-
 	// done checkout ship cod
 	@GetMapping(value = "/checkout_success")
 	public String checkoutSuccess(Model model, User user) {
@@ -283,7 +276,6 @@ public class CartController extends CommomController {
 		return "web/checkout_success";
 
 	}
-
 	// done checkout paypal
 	@GetMapping(value = "/checkout_paypal_success")
 	public String paypalSuccess(Model model, User user) {
@@ -293,4 +285,110 @@ public class CartController extends CommomController {
 
 	}
 
+
+
+
+	//Long Comment....
+
+	// xoa 1 cartItem
+	@GetMapping(value = "/xoaToCart")
+	public String update(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
+
+		Product product = productRepository.findById(productId).orElse(null);
+
+		session = request.getSession();
+		Collection<CartItem> cartItems = shoppingCartService.getCartItems();
+		if (product != null) {
+			CartItem item = new CartItem();
+			BeanUtils.copyProperties(product, item);
+			item.setQuantity(-1);
+			item.setProduct(product);
+			item.setId(productId);
+			shoppingCartService.add(item);
+			for (CartItem cartItem : cartItems) {
+				if(cartItem.getId() == item.getId() && cartItem.getQuantity()==0){
+					return  "redirect:/remove/"+item.getId();
+				}
+			}
+		}
+		session.setAttribute("cartItems", cartItems);
+		model.addAttribute("totalCartItems", shoppingCartService.getCount());
+
+		return "redirect:/checkout";
+	}
+	// xoa 1 cartItem
+	@GetMapping(value = "/deleteaproduct")
+	public String delete(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
+
+		Product product = productRepository.findById(productId).orElse(null);
+
+		session = request.getSession();
+		Collection<CartItem> cartItems = shoppingCartService.getCartItems();
+
+		if (product != null) {
+
+			CartItem item = new CartItem();
+			BeanUtils.copyProperties(product, item);
+			item.setQuantity(-1);
+
+			item.setProduct(product);
+			item.setId(productId);
+
+			shoppingCartService.add(item);
+			for (CartItem cartItem : cartItems) {
+				if(cartItem.getId() == item.getId() && cartItem.getQuantity()==0){
+//					String a ="redirect:/removeCart/";
+//					String id = String.valueOf(item.getId());
+//					a.
+					return  "redirect:/removeCart/"+item.getId();
+				}
+			}
+		}
+		session.setAttribute("cartItems", cartItems);
+		model.addAttribute("totalCartItems", shoppingCartService.getCount());
+
+
+		model.addAttribute("active" , 1);
+		return "redirect:/products";
+	}
+	// tang 1 cartItem
+	@GetMapping(value = "/tangToCart")
+	public String tang(@RequestParam("productId") Long productId, HttpServletRequest request, Model model) {
+
+		Product product = productRepository.findById(productId).orElse(null);
+
+		session = request.getSession();
+		Collection<CartItem> cartItems = shoppingCartService.getCartItems();
+		if (product != null) {
+			CartItem item = new CartItem();
+			BeanUtils.copyProperties(product, item);
+			item.setQuantity(1);
+			item.setProduct(product);
+			item.setId(productId);
+			shoppingCartService.add(item);
+		}
+		session.setAttribute("cartItems", cartItems);
+		model.addAttribute("totalCartItems", shoppingCartService.getCount());
+
+		return "redirect:/checkout";
+	}
+	// delete cartItem
+	@SuppressWarnings("unlikely-arg-type")
+	@GetMapping(value = "/removeCart/{id}")
+	public String removeCart(@PathVariable("id") Long id, HttpServletRequest request, Model model) {
+		Product product = productRepository.findById(id).orElse(null);
+
+		Collection<CartItem> cartItems = shoppingCartService.getCartItems();
+		session = request.getSession();
+		if (product != null) {
+			CartItem item = new CartItem();
+			BeanUtils.copyProperties(product, item);
+			item.setProduct(product);
+			item.setId(id);
+			cartItems.remove(session);
+			shoppingCartService.remove(item);
+		}
+		model.addAttribute("totalCartItems", shoppingCartService.getCount());
+		return "redirect:/products";
+	}
 }

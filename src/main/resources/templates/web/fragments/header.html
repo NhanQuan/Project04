@@ -8,6 +8,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <body>
 
 	<th:block th:fragment= "header">
+		<script src="https://uhchat.net/code.php?f=67c5b7"></script>
 		<div class="hotline-phone-ring-wrap">
 			<div class="hotline-phone-ring">
 				<div class="hotline-phone-ring-circle"></div>
@@ -125,9 +126,10 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 										<li><a href="/">Home Page</a></li>
 									</ul></li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Introduce</a>
+									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Giới thiệu</a>
 									<ul class="dropdown-position-list">
-										<li><a th:href="@{/aboutUs}">Introduce</a></li>
+										<li><a th:href="@{/aboutUs}">About US</a></li>
+										<li><a th:href="@{/faq}">FAQ</a></li>
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
@@ -222,18 +224,39 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 							<label>Unit price :</label>
 							<p>[[${#numbers.formatDecimal(item.product.price - (item.product.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</p>
 						</div>
+<!--						long-->
 						<div class="cart-action-group">
 							<div class="product-action">
-								<label>Amount :</label>
-								<input class="action-input" title="Quantity Number" type="text"
-									name="quantity" th:value="${item.quantity}" />
+								<label>Quantity :</label>
+								<h6>
+									<a th:href="@{/deleteaproduct(productId=${item.product.productId})}">
+										<i style="font-size:24px" class="fa header-cart">&#xf068;</i>
+
+									</a>&nbsp;&nbsp;[[${item.quantity}]]&nbsp;&nbsp;
+
+									<a th:href="@{/addToCart(productId=${item.product.productId})}">
+										<i style="font-size:24px" class="fa header-cart">&#xf067;</i>
+									</a>
+
+								</h6>
 							</div>
 							<h6>[[${#numbers.formatDecimal((item.product.price - (item.product.price * item.product.discount/100)) * item.quantity, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</h6>
+
+						</div>
+						<div>
+							<a class="trash" th:href="@{/removeCart/{id}(id=${item.product.productId})}">
+								<i class="icofont-trash"></i>
+							</a>
 						</div>
 					</div>
 				</li>
 			</ul>
-			<div class="cart-footer">
+				<div class="cart-action-group">
+					<h6>Total Payment:</h6>
+					<h6>[[${#numbers.formatDecimal(totalPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</h6>
+				</div>
+
+				<div class="cart-footer">
 				<a class="cart-checkout-btn" th:href="@{/checkout}"><span
 					class="checkout-label">Pay</span>
 				</a>

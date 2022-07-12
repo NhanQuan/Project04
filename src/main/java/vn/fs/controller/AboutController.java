@@ -24,4 +24,10 @@ public class AboutController extends CommomController {
 		commomDataService.commonData(model, user);
 		return "web/about";
 	}
+	@GetMapping(value = "/faq")
+	public String faq(Model model, User user) {
+
+		commomDataService.commonData(model, user);
+		return "web/faq";
+	}
 }

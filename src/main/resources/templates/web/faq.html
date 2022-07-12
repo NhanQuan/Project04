@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta
+        http-equiv="content-type"
+        content="text/html;charset=utf-8"/>
+<head>
+    <meta charset="UTF-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="author" content="mironcoder" />
+    <meta name="email" content="mironcoder@gmail.com" />
+    <meta name="profile" content="https://themeforest.net/user/mironcoder" />
+    <meta name="template" content="greeny" />
+    <meta name="title" content="greeny - Ecommerce Food Store HTML Template" />
+    <meta
+            name="keywords"
+            content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online"/>
+
+    <title>Web bán hàng nông sản</title>
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
+    <link rel="stylesheet" href="fonts/fontawesome/fontawesome.min.css" />
+    <link rel="stylesheet" href="vendor/venobox/venobox.min.css" />
+    <link rel="stylesheet" href="vendor/slickslider/slick.min.css" />
+    <link rel="stylesheet" href="vendor/niceselect/nice-select.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+<!--************************************
+            Header Start
+    *************************************-->
+<header th:replace="~{/web/fragments/header :: header}"></header>
+<!--************************************
+        Header End
+*************************************-->
+
+<section
+        class="inner-section single-banner"
+        style="background: url(images/single-banner.jpg) no-repeat center" >
+    <div class="container">
+        <h2>FAQ</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+
+        </ol>
+    </div>
+</section>
+
+<section class="about-choose">
+    <div class="container">
+        <div class="row">
+            <div class="col-11 col-md-9 col-lg-7 col-xl-6 mx-auto">
+                <div class="section-heading">
+                    <h2 style="color: red">Organic Farming : Frequently Asked Questions</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What is organic agriculture?</h4>
+                        <p>
+                            Organic food production is based on a system of farming that mimics natural ecosystems that balance pest and beneficial organism populations and maintain and replenish fertility of the soil.
+                            The term ‘organic’ in the United States is applied to the agricultural products produced on farms that adhere to the USDA’s National Organic Program (NOP) Rule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon">
+                        <i class="icofont-support"></i>
+                    </div>
+                    <div class="choose-text">
+                        <h4>How do organic farms manage fertility?</h4>
+                        <p>
+                            Organic farmers manage crop nutrients through a crop rotation that includes cover crops and the application of plant and animal organic matter,
+                            generally in the form of compost. Appropriate tillage and cultivation practices improve soil structure, organic matter content and soil microbial life. Mined minerals, and a few allowed synthetic substances are permitted as supplemental sources of nutrients, provided that soil, crop, and water contamination are avoided.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Do organic farmers take any precautions when they apply manure on organic farms?</h4>
+                        <p>
+                            Yes. Raw manure and other animal and plant material must be handled in a way that prevents water, soil and crop contamination. In order to be applied without a days-to-harvest restriction, manure must be properly composted. Crops for human consumption that have the edible portion in contact with the soil – including leafy greens – must be harvested at least 120 days after the application of uncomposted manure.
+                            Other crops for human consumption must be harvested at least 90 days following the application of raw manure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How are insect pests managed on organic farms?</h4>
+                        <p>
+                            Organic farm systems protect crop damage by insect pests primarily through the use of biological and cultural practices such as crop rotation; diversification; habitat management; beneficial organism releases; sanitation; and timing.
+                            Some natural substances, such as botanicals, and a few relatively non-toxic synthetic pesticides such as soap are permitted by the USDA National Organic Program Standards when used in conjunction with the farm plan and used according to the restrictions found on the National List.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How are weeds managed on organic farms?</h4>
+                        <p>
+                            Weed management on organic farms consists of cultural and mechanical techniques such as the rotation of crops that suppress weeds, mulching, tillage, cultivation, water management, and manual weeding. Weeds often help to conserve soil, improve organic matter, and provide beneficial habitat for natural enemies on organic farms. Plastic mulches are permitted provide they are removed at the end of the season. Insects and diseases can help to keep certain weed populations in check. There are a few natural substances that are also used to manage weeds, but the efficacy of these substances is still subject to question.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How are crop diseases managed on organic farms?</h4>
+                        <p>
+                            Soil-borne diseases are managed by improving organic matter and biological activity. Cultural, biological, and physical methods such as rotation, sanitation, pruning, and selection of disease resistant varieties are all part of organic disease management. Some natural substances, such as clays, and a few synthetic fungicides such as copper sulfate are permitted by the USDA National Organic Program Standards when used in conjunction with the farm plan and used according to the restrictions found on the National List.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What are the requirements for converting to organic dairy production?</h4>
+                        <p>
+                            There are two means of converting dairy animals to organic production:
+                            1) Animals from conventional sources must be maintained under organic management for 12 months prior to sale of any products as organic. Replacement animals may be added to the herd after a similar 12-month conversion period.
+                            2) If an entire, distinct herd is converted, a one-time allowance is granted to permit feeding of up to 20% non-organic feed for the first 9 months, followed by 100% organic feed for three months. If this type of conversion is made,
+                            all replacement animals must be managed organically from the last third of gestation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How do organic animals meet their nutritional requirements?</h4>
+                        <p>
+                            All agricultural products provided in the feed ration must be organic, with a limited amount of supplementation and additives. Ruminant livestock must have a significant portion of their feed needs met by pasture.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How do producers maintain the health of organic animals?</h4>
+                        <p>
+                            Livestock health care must be based on preventive practices, such as balanced nutrition from organic feed, stress reduction, and preventative practices. Medications on the National List may be used only when necessary, and may not be administered in the absence of illness. Antibiotics are not permitted and products from animals treated with any prohibited medication must be diverted from organic marketing channels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What methods are available to manage parasites in organic livestock?</h4>
+                        <p>
+                            Organic livestock producers rely on cultural practices to minimize parasite infestations. Synthetic parasiticides may be used only if they are on the National List and are prohibited for use in slaughter stock.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What are the living conditions for organic livestock?</h4>
+                        <p>
+                            All organic animals are required to have access to the outdoors and exercise areas, and must be provided with healthy living conditions. Ruminants are also required to have access to pasture.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What is the National Organic Program?</h4>
+                        <p>
+                            The National Organic Program (NOP) consists of the regulations and regulatory agents to establish and protect the standards for agricultural products labeled as ‘organic.’  These standards are known as the National Organic Standards. Congress authorized the USDA to establish the NOP by the Organic Food Production Act of 1990. All organic food label claims made in the United States must now be backed by valid certification according to the NOP Rule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Who has to be certified?</h4>
+                        <p>
+                            The USDA regulations require that all producers and handlers that make an organic claim for their products must be certified by a USDA-accredited certification agency. The only exceptions are for small farmers or handlers with less than $5,000 in gross organic sales, handlers that buy and sell without repackaging or changing form, and retailers that do not process food.  Exempt operations must maintain records and follow the exact same production practices as certified farmers in order to label their products as organic.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Who does the certifying?</h4>
+                        <p>
+                            The USDA accredits state, private and international agencies to certify agricultural products and food as organic under the NOP.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How long does it take to transition land farmed conventionally to organic status?</h4>
+                        <p>
+                            In order to be eligible for organic certification, land must have had no prohibited materials applied to it for three years immediately preceding harvest.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Must an entire farm be converted, or can a farm make the transition field by field?</h4>
+                        <p>
+                            A farm can be converted field by field. However, to be certified, a field must have distinct, defined boundaries and buffer zones to protect it from runoff and unintended contamination from adjoining land. The farm also needs to have facilities and record keeping in place to ensure and document that organic and non-organic crops are not commingled.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What are acceptable sources of animals used for organic meat production?</h4>
+                        <p>
+                            Slaughter animals can come from any breeding stock that has been organically managed from the last third of gestation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What sources of poultry are acceptable for organic poultry products?</h4>
+                        <p>
+                            Poultry must be managed organically from the second day of life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Can animals be converted to organic production at the same time as the land?</h4>
+                        <p>
+                            Yes. Livestock operations may convert animals with the land on which they are pastured.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What does it mean to be ‘certified organic’?</h4>
+                        <p>
+                            Certified organic means that the food has been grown and handled according to the National Organic Program Standards and inspected by independent state or private organizations. Periodic unannounced inspections are also conducted. Certification includes annual inspection of all farm fields and facilities, farm activity records, plus periodic testing of soil, water and produce to ensure that growers and processors meet National Organic Standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How can I contact an organic certifier?</h4>
+                        <p>
+                            You may visit the website www.tnocd.org.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How much does certification cost?</h4>
+                        <p>
+                            Each certification body is required to establish and publish fee schedules that are applied fairly to all applicants. Fees vary considerably from agency to agency, and depend on the size and type of organic operation to be certified. Some state departments of agriculture are offering a significant reimbursement under a federal cost-share program.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Is organic certification automatically recognized in other states?</h4>
+                        <p>
+                            All U.S. states and USDA-accredited certifiers accept certifications issued by USDA accredited or recognized certification programs. Foreign governments and international certification bodies have similar organic standards but may insist on additional certification to confirm operators who export organic products meet their standards. Some U.S. certifiers offer this additional service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>How does a farm get certified?</h4>
+                        <p>
+                            The operator obtains and reads the National Organic Standards, and conducts a self-assessment to see if the operation meets these requirements in terms of land history, production practices, materials used and recordkeeping procedures. In many cases, some practices and systems need to be modified to comply. Once an operation complies, the operator then selects an accredited certifier, submits an application, gets inspected, meets any conditions identified by the certifier, and obtains a certificate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>What are the penalties for misuse of the term “organic?”</h4>
+                        <p>
+                            Any operation that knowingly sells or labels an agricultural product as “organic,” not in accordance with the Organic Foods Production Act and the National Organic Standards may be subject to a civil penalty of not more than $10,000 per violation and criminal sanctions based on violation of Federal laws governing fraud and false statements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="choose-card">
+                    <div class="choose-icon"><i class="icofont-support"></i></div>
+                    <div class="choose-text">
+                        <h4>Must organic farmers use organic seeds?”</h4>
+                        <p>
+                            The NOP Rule requires that organically produced and handled seeds be planted when such seed is commercially available for the variety. Annual transplants must always be organically grown unless the Secretary of Agriculture in response to a natural disaster or other major interruption issues a temporary variance. All seed used in organic production must be untreated, or treated only with substances (such as microbial products) that are on the National List. Farmers are required to use certified organic seed when it is commercially available. Commercial availability is based on ability to obtain the seed in an appropriate form, quality, or quantity, as reviewed by the certification agent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="news-part"
+         style="background: url(images/newsletter.jpg) no-repeat center">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 col-lg-6 col-xl-7">
+                <div class="news-text">
+                    <h2>Get 20% Discount For Subscribers</h2>
+                    <p>Get 20% Discount For Subscribers</p>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-6 col-xl-5">
+                <form class="news-form">
+                    <input type="text" placeholder="Enter Your Email Address" />
+                    <button>
+                        <span><i class="icofont-ui-email"></i>Send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="intro-part">
+    <div class="container">
+        <div class="row intro-content">
+            <div class="col-sm-6 col-lg-3">
+                <div class="intro-wrap">
+                    <div class="intro-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="intro-content">
+                        <h5>Free Home Delivery</h5>
+                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="intro-wrap">
+                    <div class="intro-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="intro-content">
+                        <h5>Refund Policy</h5>
+                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="intro-wrap">
+                    <div class="intro-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="intro-content">
+                        <h5>Support System</h5>
+                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="intro-wrap">
+                    <div class="intro-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="intro-content">
+                        <h5>Safe Payment Way</h5>
+                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--************************************
+             Footer Start
+     *************************************-->
+<footer th:replace="~{/web/fragments/footer :: footer}"></footer>
+
+<!--************************************
+        Footer End
+*************************************-->
+
+
+<script src="vendor/bootstrap/jquery-1.12.4.min.js"></script>
+<script src="vendor/bootstrap/popper.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.min.js"></script>
+<script src="vendor/countdown/countdown.min.js"></script>
+<script src="vendor/niceselect/nice-select.min.js"></script>
+<script src="vendor/slickslider/slick.min.js"></script>
+<script src="vendor/venobox/venobox.min.js"></script>
+<script src="js/nice-select.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/accordion.js"></script>
+<script src="js/venobox.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

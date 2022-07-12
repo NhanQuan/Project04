@@ -37,6 +37,7 @@ public class Product implements Serializable {
 	private double price;
 	private int discount;
 	private String productImage;
+	private String qrCode;
 	private String description;
 	@Temporal(TemporalType.DATE)
 	private Date enteredDate;

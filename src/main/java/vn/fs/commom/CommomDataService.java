@@ -62,6 +62,14 @@ public class CommomDataService {
 
 		Collection<CartItem> cartItems = shoppingCartService.getCartItems();
 		model.addAttribute("cartItems", cartItems);
+		//Long
+		double totalPrice = 0;
+		for (CartItem cartItem : cartItems) {
+			double price = cartItem.getQuantity() * cartItem.getProduct().getPrice();
+			totalPrice += price - (price * cartItem.getProduct().getDiscount() / 100);
+		}
+
+		model.addAttribute("totalPrice", totalPrice);
 
 	}
 	

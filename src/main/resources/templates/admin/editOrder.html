@@ -106,9 +106,9 @@
 													<img th:src="@{'/loadImage?imageName='+${item.product.productImage}}" width="80px" alt="product" />
 												</td>
 						                        <td>[[${item.product.productName}]]</td>
-						                        <td>[[${item.quantity}]]</td>
-						                        <td>[[${#numbers.formatDecimal(item.price - (item.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</td>
-						                        <td>[[${#numbers.formatDecimal((item.price - (item.price * item.product.discount/100)) * item.quantity, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</td>
+						                        <td>[[${item.quantitydetail}]]</td>
+						                        <td>[[${#numbers.formatDecimal(item.pricedetail - (item.pricedetail * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</td>
+						                        <td>[[${#numbers.formatDecimal((item.pricedetail - (item.pricedetail * item.product.discount/100)) * item.quantitydetail, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</td>
 						                    </tr>
 										</tbody>
 									</table>

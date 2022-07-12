@@ -3,13 +3,15 @@ package vn.fs.controller.admin;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +30,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import vn.fs.dto.OrderExcelExporter;
-import vn.fs.dto.ProductExcelExporter;
 import vn.fs.entities.Category;
-import vn.fs.entities.Order;
 import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.CategoryRepository;
 import vn.fs.repository.OrderDetailRepository;
 import vn.fs.repository.ProductRepository;
 import vn.fs.repository.UserRepository;
-import vn.fs.service.ProductDetailService;
-
+import vn.fs.service.QrCodeGeneratorService;
 
 @Controller
 @RequestMapping("/admin")
@@ -49,7 +47,8 @@ public class ProductController{
 	private String pathUploadImage;
 
 	@Autowired
-	ProductDetailService productDetailService;
+	private QrCodeGeneratorService qrCodeGeneratorService;
+
 	@Autowired
 	ProductRepository productRepository;
 	@Autowired
@@ -108,10 +107,22 @@ public class ProductController{
 				fos.close();
 			} catch (IOException e) {
 			}
+
 			product.setProductImage(file.getOriginalFilename());
+
 			product.setEnteredDate(new Date());
 			Product p = productRepository.save(product);
+			p.setQrCode(p.getProductId() + ".png");
+			productRepository.save(p);
 			if (null != p) {
+				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
+				String qrCodeContent = "Name: " + product.getProductName()
+						+ "\nPrice: " + product.getPrice()
+						+ "\nDescription: " + product.getDescription();
+				int width = 400;
+				int height = 400;
+				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
+
 				model.addAttribute("message", "Add success");
 				model.addAttribute("product", product);
 				return "redirect:/admin/products";
@@ -147,10 +158,11 @@ public class ProductController{
 
 		return "admin/editProduct";
 	}
+
 	// edit product
 	@PostMapping(value = "/editProduct")
 	public String editProduct(@ModelAttribute("product") Product p, ModelMap model,
-							  @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
+							  @RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
 		Product product = productRepository.findById(p.getProductId()).orElse(null);
 			if (file.isEmpty()) {
 				p.setProductImage(product.getProductImage());
@@ -164,8 +176,22 @@ public class ProductController{
 				}
 				p.setProductImage(file.getOriginalFilename());
 			}
+		      p.setQrCode(product.getProductId() + ".png");
 			productRepository.save(p);
 			if (null != p) {
+				try{
+					Path myPathqr = Paths.get(pathUploadImage + "/" + productRepository.findById(product.getProductId()).get().getQrCode());
+					Files.deleteIfExists(myPathqr);
+				}catch (Exception e){
+
+				}
+				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
+				String qrCodeContent = "Name: " + p.getProductName()
+						+ "\nPrice: " + p.getPrice()
+						+ "\nDescription: " + p.getDescription();
+				int width = 400;
+				int height = 400;
+				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
 				model.addAttribute("message", "Update success");
 				model.addAttribute("product", p);
 			} else {
@@ -177,26 +203,18 @@ public class ProductController{
 
 	// delete category
 	@GetMapping("/deleteProduct/{id}")
-	public String delProduct(@PathVariable("id") Long id, Model model) {
-		productRepository.deleteById(id);
+	public String delProduct(@PathVariable("id") Long id, Model model) throws IOException {
+		try{
+			Path myPath = Paths.get(pathUploadImage + "/" + productRepository.findById(id).get().getProductImage());
+			Files.deleteIfExists(myPath);
+			Path myPathqr = Paths.get(pathUploadImage + "/" + productRepository.findById(id).get().getQrCode());
+			Files.deleteIfExists(myPathqr);
+		}catch (IOException e) {
+		}
+	 productRepository.deleteById(id);
 		model.addAttribute("message", "Delete successful!");
 
 		return "redirect:/admin/products";
-	}
-	@GetMapping(value = "/export1")
-	public void exportToExcel(HttpServletResponse response) throws IOException {
-
-		response.setContentType("application/octet-stream");
-		String headerKey = "Content-Disposition";
-		String headerValue = "attachement; filename=products.xlsx";
-
-		response.setHeader(headerKey, headerValue);
-
-		List<Product> lisProduct = productDetailService.listAll();
-
-		ProductExcelExporter excelExporter = new ProductExcelExporter(lisProduct);
-		excelExporter.export(response);
-
 	}
 
 	@InitBinder
