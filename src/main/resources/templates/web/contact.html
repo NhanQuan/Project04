@@ -11,7 +11,7 @@
     <meta name="title" content="greeny - Ecommerce Food Store HTML Template">
     <meta name="keywords"
           content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online">
-    <title>Web selling agricultural products</title>
+    <title>Web bán nông sản xanh !</title>
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="fonts/flaticon/flaticon.css">
     <link rel="stylesheet" href="fonts/icofont/icofont.min.css">
@@ -38,9 +38,9 @@
 
 <section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
     <div class="container">
-        <h2>Contact us</h2>
+        <h2>Liên hệ chúng tôi</h2>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a th:href="@{/}">Home Page</a></li>
+            <li class="breadcrumb-item"><a th:href="@{/}">Trang Chủ</a></li>
         </ol>
     </div>
 </section>
@@ -50,14 +50,14 @@
             <div class="col-md-6 col-lg-4">
                 <div class="contact-card">
                     <i class="icofont-location-pin"></i>
-                    <h4>Address</h4>
+                    <h4>Địa chỉ nhà : </h4>
                     <p>1Hd- 50, 010 Avenue, NY 90001 United States</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="contact-card">
                     <i class="icofont-phone"></i>
-                    <h4>Phone Number</h4>
+                    <h4>Số điện thoại :</h4>
                     <p>
                         <a href="javascript:void(0);">009-215-5596 <span>(toll free)</span></a>
                         <a href="javascript:void(0);">009-215-5595</a>
@@ -67,7 +67,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="contact-card">
                     <i class="icofont-email"></i>
-                    <h4>Email hỗ trợ</h4>
+                    <h4>Email hỗ trợ :</h4>
                     <p>
                         <a href="javascript:void(0);">contact@example.com</a>
                         <a href="javascript:void(0);">info@example.com</a>
@@ -88,30 +88,30 @@
                      th:text="${message}">
                 </div>
                 <form class="contact-form" th:action="@{/sendmail}" th:object="${mailsup}" method="post">
-                    <h4>Submit a support request</h4>
+                    <h4>Gửi yêu cầu hỗ trợ</h4>
                     <div class="form-group">
                         <div class="form-input-group">
                             <input class="form-control" type="text" th:field="*{name}" id="name"
-                                   placeholder="Your Name" required><i class="icofont-user-alt-3"></i></div>
+                                   placeholder="Tên của bạn" required><i class="icofont-user-alt-3"></i></div>
                     </div>
                     <div class="form-group">
                         <div class="form-input-group">
                             <input class="form-control" type="text" th:field="*{email}" id="email"
-                                   placeholder="Your Email" required><i class="icofont-email"></i></div>
+                                   placeholder="Email của bạn" required><i class="icofont-email"></i></div>
                     </div>
                     <div class="form-group">
                         <div class="form-input-group">
                             <input class="form-control" type="text"th:field="*{title}" id="title"
-                                   placeholder="Title" required><i class="icofont-book-mark"></i></div>
+                                   placeholder="Tiêu đề" required><i class="icofont-book-mark"></i></div>
                     </div>
                     <div class="form-group">
                         <div class="form-input-group">
                                 <textarea class="form-control" required th:field="*{content}" id="content"
-                                          placeholder="Content"></textarea><i class="icofont-paragraph"></i></div>
+                                          placeholder="Nội dung"></textarea><i class="icofont-paragraph"></i></div>
                     </div>
                     <button type="submit" class="form-btn-group">
                         <i class="fas fa-envelope"></i>
-                        <span>Send Message</span>
+                        <span>Gửi tin nhắn</span>
                     </button>
                 </form>
             </div>
@@ -157,13 +157,13 @@
         <div class="row align-items-center">
             <div class="col-md-5 col-lg-6 col-xl-7">
                 <div class="news-text">
-                    <h2>Receive 20% Discount For Subscribers</h2>
-                    <p>Receive 20% Discount For Subscribers</p>
+                    <h2>Nhận chiết khấu 20% cho người đăng ký</h2>
+                    <p>Nhận chiết khấu 20% cho người đăng ký</p>
                 </div>
             </div>
             <div class="col-md-7 col-lg-6 col-xl-5">
                 <form class="news-form">
-                    <input type="text" placeholder="Enter Your Email">
+                    <input type="text" placeholder="Nhập email của bạn">
                     <button>
                         <span><i class="icofont-ui-email"></i>Gửi</span>
                     </button>
@@ -179,8 +179,8 @@
                 <div class="intro-wrap">
                     <div class="intro-icon"><i class="fas fa-truck"></i></div>
                     <div class="intro-content">
-                        <h5>Free Home Delivery</h5>
-                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                        <h5>Giao hàng tận nhà miễn phí</h5>
+                        <p>Giao hàng đúng sản phẩm nhanh chóng, đúng hẹn, hỗ trợ giao tận cửa nếu có nhu ... hạng vàng rồi mà hóa đơn trên 100k vẫn k dc freeship vẫn tính 10k ship.</p>
                     </div>
                 </div>
             </div>
@@ -188,8 +188,8 @@
                 <div class="intro-wrap">
                     <div class="intro-icon"><i class="fas fa-sync-alt"></i></div>
                     <div class="intro-content">
-                        <h5>Refund Policy</h5>
-                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                        <h5>Chính Sách Hoàn Tiền</h5>
+                        <p>Hoàn lại số tiền bằng với tiền vận chuyển mà người mua đã thanh toán cho đơn vị vận chuyển thông qua “Số dư tài khoản Vegetable-Organic” trên ứng dụng.</p>
                     </div>
                 </div>
             </div>
@@ -197,8 +197,8 @@
                 <div class="intro-wrap">
                     <div class="intro-icon"><i class="fas fa-headset"></i></div>
                     <div class="intro-content">
-                        <h5>Support system</h5>
-                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                        <h5>Hệ Thống Hỗ Trợ</h5>
+                        <p>Nguồn rau sạch rõ ràng, giá lại rẻ hơn cả rau mua ngoài chợ.</p>
                     </div>
                 </div>
             </div>
@@ -206,8 +206,8 @@
                 <div class="intro-wrap">
                     <div class="intro-icon"><i class="fas fa-lock"></i></div>
                     <div class="intro-content">
-                        <h5>Safe Payment Way</h5>
-                        <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                        <h5>Thanh toán an toàn</h5>
+                        <p>Người mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 07 (bảy) ngày (đối với các sản phẩm thuộc Cửa Hàng) và 03 (ba) ngày (đối với các sản phẩm không thuộc Cửa Hàng) kể từ lúc đơn hàng được cập nhật giao hàng thành công.</p>
                     </div>
                 </div>
             </div>

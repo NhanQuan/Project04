@@ -41,22 +41,18 @@
 				<div class="row align-items-center">
 					<div class="col-md-6 col-lg-6">
 						<div class="banner-content">
-							<h1>Free home delivery within 24 hours now
-								hours.</h1>
-							<p>Lorem ipsum dolor consectetur adipisicing elit modi
-								consequatur eaque expedita porro necessitatibus eveniet
-								voluptatum quis pariatur Laboriosam molestiae architecto
-								excepturi</p>
+							<h1>Giao hàng tận nhà miễn phí trong 24h </h1>
+							<p>Giao hàng nhanh thuộc công ty Rau Xanh. Với thâm niên nhiều năm, dịch vụ đã vươn lên top đầu và được đông đảo người dân địa phương ủng hộ.</p>
 							<div class="banner-btn">
 								<a class="btn btn-inline"
 									th:href="@{/products}">
 									<i class="fas fa-shopping-basket"></i>
-									<span>Buy Now</span>
+									<span>Mua ngay</span>
 								</a>
 								<a class="btn btn-outline"
 									href="javascript:void(0);">
 									<i class="icofont-sale-discount"></i>
-									<span>Accept Offer</span>
+									<span>Chấp nhận đề nghị</span>
 								</a>
 							</div>
 						</div>
@@ -79,21 +75,17 @@
 					</div>
 					<div class="col-md-6 col-lg-6">
 						<div class="banner-content">
-							<h1>Free home delivery within 24 hours now
-								hours.</h1>
-							<p>Lorem ipsum dolor consectetur adipisicing elit modi
-								consequatur eaque expedita porro necessitatibus eveniet
-								voluptatum quis pariatur Laboriosam molestiae architecto
-								excepturi</p>
+							<h1>100% Thực Phẩm Hữu Cơ Tươi</h1>
+							<p>Được lựa chọn thông qua những người nông dân có kinh nghiệm tốt nhất và an toàn nhất.</p>
 							<div class="banner-btn">
 								<a class="btn btn-inline" th:href="@{/products}">
 									<i class="fas fa-shopping-basket"></i>
-									<span>Buy Now</span>
+									<span>Mua ngay</span>
 								</a>
 								<a class="btn btn-outline"
 									href="javascript:void(0);">
 									<i class="icofont-sale-discount"></i>
-									<span>Accept Order</span>
+									<span>Chấp nhận đơn đặt hàng</span>
 								</a>
 							</div>
 						</div>
@@ -121,7 +113,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-heading">
-						<h2>Best Seller</h2>
+						<h2>Bán chạy nhất</h2>
 					</div>
 				</div>
 			</div>
@@ -132,7 +124,7 @@
 							<div class="product-card">
 								<div class="product-media">
 									<div class="product-label">
-										<label class="label-text new">Selling</label>
+										<label class="label-text new">Đang Bán</label>
 										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
 									</div>
 									<button class="product-wish wish">
@@ -174,7 +166,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Add To Cart</span>
+										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
 									</a>
 									
 								</div>
@@ -188,7 +180,7 @@
 				<div class="col-lg-12">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>See More</span></a>
+							class="fas fa-eye"></i><span>Xem thêm</span></a>
 					</div>
 				</div>
 			</div>
@@ -210,7 +202,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-heading">
-						<h2>Featured Items</h2>
+						<h2>Các mặt hàng nổi bật</h2>
 					</div>
 				</div>
 			</div>
@@ -221,7 +213,7 @@
 							<div class="product-card">
 								<div class="product-media">
 									<div class="product-label">
-										<label class="label-text feat">Outstanding</label>
+										<label class="label-text feat">Vượt trội</label>
 										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
 									</div>
 									<button class="product-wish wish">
@@ -263,7 +255,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Add To Cart</span>
+										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
 									</a>
 									
 								</div>
@@ -276,7 +268,7 @@
 				<div class="col-lg-12">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>See More</span></a>
+							class="fas fa-eye"></i><span>Xem thêm</span></a>
 					</div>
 				</div>
 			</div>
@@ -287,18 +279,21 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6 mx-auto">
 					<div class="countdown-content">
-						<h3>SPECIAL DISCOUNT OFFER FOR ALL ITEMS</h3>
-						<p>Reprehenderit sed quod autem molestiae aut modi minus
-							veritatis iste dolorum suscipit quis voluptatum fugiat mollitia
-							quia minima</p>
+						<h3>ƯU ĐÃI GIẢM GIÁ ĐẶC BIỆT CHO TẤT CẢ CÁC MẶT HÀNG</h3>
+						<p>Với chương trình này, bạn sẽ nhận được các ưu đãi như:<br>
+
+							🔶 Hoàn Đậm: Cơ hội hoàn tiền lên đến 50%<br>
+							🔷 Săn Sale Nửa Giá: Mua sắm sản phẩm với giá khuyến mãi hơn 50%<br>
+							🔶 Số Chiều Xổ: Đoán ký tự còn lại để trúng mã ưu đãi 30%<br>
+							🔷 Thử Thách Bắt Deal: Giảm ngay 30% cho các sản phẩm "siêu hot"</p>
 						<div class="countdown countdown-clock" data-countdown="2022/12/22">
-							<span class="countdown-time"><span>00</span><small>days</small></span><span
-								class="countdown-time"><span>00</span><small>hours</small></span><span
-								class="countdown-time"><span>00</span><small>minutes</small></span><span
-								class="countdown-time"><span>00</span><small>seconds</small></span>
+							<span class="countdown-time"><span>00</span><small>Ngày</small></span><span
+								class="countdown-time"><span>00</span><small>Giờ</small></span><span
+								class="countdown-time"><span>00</span><small>Phút</small></span><span
+								class="countdown-time"><span>00</span><small>Giây</small></span>
 						</div>
 						<a th:href="@{/products}" class="btn btn-inline"><i
-							class="fas fa-shopping-basket"></i><span>Buy Now</span></a>
+							class="fas fa-shopping-basket"></i><span>Mua Ngay</span></a>
 					</div>
 				</div>
 				<div class="col-lg-1"></div>
@@ -318,7 +313,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section-heading">
-						<h2>New Arrivals</h2>
+						<h2>Sản Phẩm Mới</h2>
 					</div>
 				</div>
 			</div>
@@ -329,7 +324,7 @@
 							<div class="product-card">
 								<div class="product-media">
 									<div class="product-label">
-										<label class="label-text new">New</label>
+										<label class="label-text new">Mới</label>
 										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
 									</div>
 									<button class="product-wish wish">
@@ -370,7 +365,7 @@
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
-										<i class="fas fa-shopping-basket"></i><span>Add To Cart</span>
+										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
 									</a>
 									
 								</div>
@@ -383,7 +378,7 @@
 				<div class="col">
 					<div class="section-btn-25">
 						<a th:href="@{/products}" class="btn btn-outline"><i
-							class="fas fa-eye"></i><span>See More</span></a>
+							class="fas fa-eye"></i><span>Xem thêm</span></a>
 					</div>
 				</div>
 			</div>
@@ -412,7 +407,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="section-heading">
-						<h2>Customer's Feedback</h2>
+						<h2>Phản hồi của khách hàng</h2>
 					</div>
 				</div>
 			</div>
@@ -421,8 +416,7 @@
 					<div class="testimonial-slider slider-arrow">
 						<div class="testimonial-card">
 							<i class="fas fa-quote-left"></i>
-							<p>Lorem ipsum dolor consectetur adipisicing elit neque earum
-								sapiente vitae obcaecati magnam doloribus magni provident ipsam
+							<p>Goods exactly as advertised, fast and convenient delivery, delicious vegetable will buy more later
 							</p>
 							<h5>mahmud hasan</h5>
 							<ul>
@@ -436,10 +430,9 @@
 						</div>
 						<div class="testimonial-card">
 							<i class="fas fa-quote-left"></i>
-							<p>Lorem ipsum dolor consectetur adipisicing elit neque earum
-								sapiente vitae obcaecati magnam doloribus magni provident ipsam
+							<p>Mua được hàng sale quá rẻ, chưa ăn nên không biết chất lượng thế nào, đóng gói chắc chắn
 							</p>
-							<h5>mahmud hasan</h5>
+							<h5>Nguyễn Văn Nhân</h5>
 							<ul>
 								<li class="fas fa-star"></li>
 								<li class="fas fa-star"></li>
@@ -451,10 +444,9 @@
 						</div>
 						<div class="testimonial-card">
 							<i class="fas fa-quote-left"></i>
-							<p>Lorem ipsum dolor consectetur adipisicing elit neque earum
-								sapiente vitae obcaecati magnam doloribus magni provident ipsam
+							<p>Phù hop giá tiền . cũng dc . ok  nói chung là ổn
 							</p>
-							<h5>mahmud hasan</h5>
+							<h5>Sơn Tùng</h5>
 							<ul>
 								<li class="fas fa-star"></li>
 								<li class="fas fa-star"></li>
@@ -466,10 +458,9 @@
 						</div>
 						<div class="testimonial-card">
 							<i class="fas fa-quote-left"></i>
-							<p>Lorem ipsum dolor consectetur adipisicing elit neque earum
-								sapiente vitae obcaecati magnam doloribus magni provident ipsam
+							<p>Giao hàng nhanh. Sản phẩm ok.. sản phẩm đúng với hình.
 							</p>
-							<h5>mahmud hasan</h5>
+							<h5>Long</h5>
 							<ul>
 								<li class="fas fa-star"></li>
 								<li class="fas fa-star"></li>
@@ -486,18 +477,18 @@
 	</section>
 
 	<section class="news-part"
-		style="background: url(images/newsletter.jpg) no-repeat center">
+			 style="background: url(images/newsletter.jpg) no-repeat center">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-5 col-lg-6 col-xl-7">
 					<div class="news-text">
-						<h2>Receive 20% Discount For Subscribers</h2>
-						<p>Receive 20% Discount For Subscribers</p>
+						<h2>Nhận chiết khấu 20% cho người đăng ký</h2>
+						<p>Nhận chiết khấu 20% cho người đăng ký</p>
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-6 col-xl-5">
 					<form class="news-form">
-						<input type="text" placeholder="Enter Your Email Address" />
+						<input type="text" placeholder="Nhập địa chỉ email của bạn" />
 						<button>
 							<span><i class="icofont-ui-email"></i>Gửi</span>
 						</button>
@@ -515,8 +506,8 @@
 							<i class="fas fa-truck"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Free Home Delivery</h5>
-							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+							<h5>Giao hàng tận nhà miễn phí</h5>
+							<p>Giao hàng đúng sản phẩm nhanh chóng, đúng hẹn, hỗ trợ giao tận cửa nếu có nhu ... hạng vàng rồi mà hóa đơn trên 100k vẫn k dc freeship vẫn tính 10k ship.</p>
 						</div>
 					</div>
 				</div>
@@ -526,8 +517,8 @@
 							<i class="fas fa-sync-alt"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Refund Policy</h5>
-							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+							<h5>Chính Sách Hoàn Tiền</h5>
+							<p>Hoàn lại số tiền bằng với tiền vận chuyển mà người mua đã thanh toán cho đơn vị vận chuyển thông qua “Số dư tài khoản Vegetable-Organic” trên ứng dụng.</p>
 						</div>
 					</div>
 				</div>
@@ -537,8 +528,8 @@
 							<i class="fas fa-headset"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Support system</h5>
-							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+							<h5>Hệ Thống Hỗ Trợ</h5>
+							<p>Nguồn rau sạch rõ ràng, giá lại rẻ hơn cả rau mua ngoài chợ.</p>
 						</div>
 					</div>
 				</div>
@@ -548,8 +539,8 @@
 							<i class="fas fa-lock"></i>
 						</div>
 						<div class="intro-content">
-							<h5>Safe Payment Way</h5>
-							<p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+							<h5>Thanh toán an toàn</h5>
+							<p>Người mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 07 (bảy) ngày (đối với các sản phẩm thuộc Cửa Hàng) và 03 (ba) ngày (đối với các sản phẩm không thuộc Cửa Hàng) kể từ lúc đơn hàng được cập nhật giao hàng thành công.</p>
 						</div>
 					</div>
 				</div>
