@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import vn.fs.commom.CommomDataService;
 import vn.fs.entities.User;
 
-/**
- * @author DongTHD
- *
- */
+
 @Controller
 public class AboutController extends CommomController {
 
@@ -30,4 +27,5 @@ public class AboutController extends CommomController {
 		commomDataService.commonData(model, user);
 		return "web/faq";
 	}
+	
 }

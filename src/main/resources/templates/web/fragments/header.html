@@ -79,20 +79,20 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 							<i class="fas fa-search"></i>
 						</button>
 					</div>
-					
+
 					<a th:href="@{/}" class="header-logo">
 					<img src="/images/logo.png" alt="logo" />
 					</a>
-				
+
 					<th:block th:if="${#request.remoteUser}">
 						<a href="javascript:void(0);" class="header-widget" title="Tên của bạn">
 							<img src="/images/user.png" alt="user" />
 							<span>Hi!<strong><em>  [[${user.name}]]</em></strong></span>
 						</a>
 					</th:block>
-					
+
 					<form th:action="@{/searchProduct}" class="header-form">
-						<input type="text" name="keyword" th:value="${keyword}" placeholder="Search..." autocomplete="off" />
+						<input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm..." autocomplete="off" />
 						<button>
 							<i class="fas fa-search"></i>
 						</button>
@@ -121,25 +121,21 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 						<div class="navbar-content">
 							<ul class="navbar-list">
 								<li class="navbar-item dropdown"><a
-									class="navbar-link dropdown-arrow" href="javascript:void(0);">Trang Chủ</a>
-									<ul class="dropdown-position-list">
-										<li><a href="/">Trang Chủ</a></li>
-									</ul></li>
+									class="navbar-link " href="/">Trang Chủ</a>
+								</li>
 								<li class="navbar-item dropdown">
 									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Giới thiệu</a>
 									<ul class="dropdown-position-list">
 										<li><a th:href="@{/aboutUs}">Thông tin</a></li>
 										<li><a th:href="@{/faq}">FAQ</a></li>
+
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Sản Phẩm</a>
-									<ul class="dropdown-position-list">
-										<li><a th:href="@{/products}">Tất Cả Sản Phẩm</a></li>
-									</ul>
+									<a class="navbar-link " th:href="@{/products}">Sản Phẩm</a>
 								</li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Loại</a>
+									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Loại Sản Phẩm</a>
 									<ul class="dropdown-position-list">
 										<li th:each="item : ${categoryList}">
 											<a th:href="@{/productByCategory(id=${item.categoryId})}">[[${item.categoryName}]]</a>
@@ -148,10 +144,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Liên Hệ</a>
-									<ul class="dropdown-position-list">
-										<li><a th:href="@{/contact}">Liên Hệ</a></li>
-									</ul>
+									<a class="navbar-link " th:href="@{/contact}">Liên Hệ</a>
 								</li>
 								<li class="navbar-item dropdown"><a
 									class="navbar-link dropdown-arrow" href="javascript:void(0);">Tài Khoản</a>
@@ -173,13 +166,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 								<div class="navbar-info">
 									<i class="icofont-ui-touch-phone"></i>
 									<p>
-										<small>Phone</small><span>(+84) 90 66 77 088</span>
+										<small>Điện Thoại:</small><span>(+84) 90 66 77 088</span>
 									</p>
 								</div>
 								<div class="navbar-info">
 									<i class="icofont-ui-email"></i>
 									<p>
-										<small>email</small><span>VegetableOrganic@gmail.com</span>
+										<small>Email</small><span>VegetableOrganic@gmail.com</span>
 									</p>
 								</div>
 							</div>
@@ -221,33 +214,31 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 								<label>Mặt Hàng:</label>
 								<a th:href="@{/productDetail(id=${item.product.productId})}" style="color: #119744">[[${item.product.productName}]]</a>
 							</h6>
-							<label>Gía :</label>
-							<p>[[${#numbers.formatDecimal(item.product.price - (item.product.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</p>
+							<label>Gía: [[${#numbers.formatDecimal(item.product.price - (item.product.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</label>
+
 						</div>
 <!--						long-->
 						<div class="cart-action-group">
 							<div class="product-action">
-								<label>Số Lượng : </label>
+								<label>Số Lượng: </label>
 								<h6>
 									<a th:href="@{/deleteaproduct(productId=${item.product.productId})}">
 										<i style="font-size:10px" class="fa header-cart">&#xf068;</i>
-
-									</a>&nbsp;&nbsp;[[${item.quantity}]]&nbsp;&nbsp;
-
+									</a>&nbsp;&nbsp;
+									[[${item.quantity}]]&nbsp;
 									<a th:href="@{/addToCart(productId=${item.product.productId})}">
 										<i style="font-size:10px" class="fa header-cart">&#xf067;</i>
 									</a>
 
 								</h6>
 							</div>
-							<h6>[[${#numbers.formatDecimal((item.product.price - (item.product.price * item.product.discount/100)) * item.quantity, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</h6>
-
-						</div>
-						<div>
+							<h6>[[${#numbers.formatDecimal((item.product.price - (item.product.price * item.product.discount/100)) *
+								item.quantity, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</h6>
 							<a class="trash" th:href="@{/removeCart/{id}(id=${item.product.productId})}">
 								<i class="icofont-trash"></i>
 							</a>
 						</div>
+
 					</div>
 				</li>
 			</ul>

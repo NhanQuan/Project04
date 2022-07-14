@@ -101,7 +101,7 @@
 					<a class="suggest-card" th:href="@{/productByCategory(id=${item[0]})}">
 						<img src="images/suggest/02.jpg" alt="suggest" />
 							<h5>
-								[[${item[1]}]] <span>Quantity : [[${item[2]}]] </span>
+								[[${item[1]}]] <span>Số Lượng : [[${item[2]}]] </span>
 							</h5>
 					</a>
 				</li>
@@ -125,7 +125,9 @@
 								<div class="product-media">
 									<div class="product-label">
 										<label class="label-text new">Đang Bán</label>
-										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
+										<th:block th:if="${item.discount}!=0">
+
+											<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
 									</div>
 									<button class="product-wish wish">
 										<i class="fas fa-heart"></i>
@@ -150,19 +152,21 @@
 									</div>
 								</div>
 								<div class="product-content">
-									<div class="product-rating">
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="icofont-star"></i>
-									</div>
+<!--									<div class="product-rating">-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="icofont-star"></i>-->
+<!--									</div>-->
 									
 									<h6 class="product-name">
 										<a th:href="@{/productDetail(id=${item.productId})}">[[${item.productName}]]</a>
 									</h6>
 									<h6 class="product-price">
-										<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del>
+										<th:block th:if="${item.discount}!=0">
+
+											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
@@ -214,7 +218,8 @@
 								<div class="product-media">
 									<div class="product-label">
 										<label class="label-text feat">Vượt trội</label>
-										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
+										<th:block th:if="${item.discount}!=0">
+											<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
 									</div>
 									<button class="product-wish wish">
 										<i class="fas fa-heart"></i>
@@ -239,19 +244,21 @@
 									</div>
 								</div>
 								<div class="product-content">
-									<div class="product-rating">
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="icofont-star"></i>
-									</div>
+<!--									<div class="product-rating">-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="icofont-star"></i>-->
+<!--									</div>-->
 									
 									<h6 class="product-name">
 										<a th:href="@{/productDetail(id=${item.productId})}">[[${item.productName}]]</a>
 									</h6>
 									<h6 class="product-price">
-										<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del>
+										<th:block th:if="${item.discount}!=0">
+
+											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
@@ -325,7 +332,8 @@
 								<div class="product-media">
 									<div class="product-label">
 										<label class="label-text new">Mới</label>
-										<label class="label-text sale">- [[${item.discount + '%'}]]</label>
+										<th:block th:if="${item.discount}!=0">
+											<label class="label-text sale">- [[${item.discount + '%'}]]</label></th:block>
 									</div>
 									<button class="product-wish wish">
 										<i class="fas fa-heart"></i>
@@ -350,18 +358,20 @@
 									</div>
 								</div>
 								<div class="product-content">
-									<div class="product-rating">
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="active icofont-star"></i>
-										<i class="icofont-star"></i>
-									</div>
+<!--									<div class="product-rating">-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="active icofont-star"></i>-->
+<!--										<i class="icofont-star"></i>-->
+<!--									</div>-->
 									<h6 class="product-name">
 										<a th:href="@{/productDetail(id=${item.productId})}">[[${item.productName}]]</a>
 									</h6>
 									<h6 class="product-price">
-										<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del>
+										<th:block th:if="${item.discount}!=0">
+
+											<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
 										<span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
 									</h6>
 									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.productId})}">
@@ -419,13 +429,13 @@
 							<p>Goods exactly as advertised, fast and convenient delivery, delicious vegetable will buy more later
 							</p>
 							<h5>mahmud hasan</h5>
-							<ul>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-							</ul>
+<!--							<ul>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--							</ul>-->
 							<img src="images/avatar/01.jpg" alt="testimonial" />
 						</div>
 						<div class="testimonial-card">
@@ -433,13 +443,13 @@
 							<p>Mua được hàng sale quá rẻ, chưa ăn nên không biết chất lượng thế nào, đóng gói chắc chắn
 							</p>
 							<h5>Nguyễn Văn Nhân</h5>
-							<ul>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-							</ul>
+<!--							<ul>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--							</ul>-->
 							<img src="images/avatar/02.jpg" alt="testimonial" />
 						</div>
 						<div class="testimonial-card">
@@ -447,13 +457,13 @@
 							<p>Phù hop giá tiền . cũng dc . ok  nói chung là ổn
 							</p>
 							<h5>Sơn Tùng</h5>
-							<ul>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-							</ul>
+<!--							<ul>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--							</ul>-->
 							<img src="images/avatar/03.jpg" alt="testimonial" />
 						</div>
 						<div class="testimonial-card">
@@ -461,13 +471,13 @@
 							<p>Giao hàng nhanh. Sản phẩm ok.. sản phẩm đúng với hình.
 							</p>
 							<h5>Long</h5>
-							<ul>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-								<li class="fas fa-star"></li>
-							</ul>
+<!--							<ul>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--								<li class="fas fa-star"></li>-->
+<!--							</ul>-->
 							<img src="images/avatar/04.jpg" alt="testimonial" />
 						</div>
 					</div>

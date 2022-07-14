@@ -57,52 +57,48 @@
       <div class="container">
         <div class="row content-reverse">
           <div class="col-lg-3">
-            <div class="shop-widget-promo">
-              <a href="#"><img src="images/promo/shop/01.jpg" alt="promo" /></a>
-            </div>
+			  <div class="shop-widget">
+				  <h6 class="shop-widget-title">Tìm kiếm theo giá</h6>
+				  <ul class="shop-widget-list shop-widget-scroll">
+					  <li >
+						  <div class="shop-widget-title">
+							  <form th:action="@{/productByPrice}" method="get">
+								  <input type="number"  hidden name="from" id="from" th:value=10000 required />
+								  <input type="number"  hidden name="to" id="to" th:value=100000 required />
+								  <input type="submit" value="Gía: 10.000Đ - 100.000Đ"/>
+							  </form>
+						  </div>
+					  </li>
+					  <li >
+						  <div class="shop-widget-title">
+							  <form th:action="@{/productByPrice}" method="get">
+								  <input type="number"  hidden name="from" id="from" th:value=100000 required />
+								  <input type="number"  hidden name="to" id="to" th:value=300000 required />
+								  <input type="submit" value="Gía: 100.000Đ - 300.000Đ"/>
+							  </form>
+						  </div>
+					  </li>
+					  <li >
+						  <div class="shop-widget-title">
+							  <form th:action="@{/productByPrice}" method="get">
+								  <input type="number"  hidden name="from" id="from" th:value=300000 required />
+								  <input type="number"  hidden name="to" id="to" th:value=500000 required />
+								  <input type="submit" value="Gía: 300.000Đ - 500.000Đ"/>
+							  </form>
+						  </div>
+					  </li>
+					  <li >
+						  <div class="shop-widget-title">
+							  <form th:action="@{/productByPrice}" method="get">
+								  <input type="number"  hidden name="from" id="from" th:value=500000 required />
+								  <input type="number"  hidden name="to" id="to" th:value=1000000 required />&nbsp;
+								  <input type="submit" value="Gía: 500.000Đ - 1.000.000Đ"/>
+							  </form>
 
-			  			  <div class="shop-widget">
-			  				  <h6 class="shop-widget-title">Tìm kiếm theo giá</h6>
-			  				  <ul class="shop-widget-list shop-widget-scroll">
-			  					  <li >
-			  						  <div class="shop-widget-title">
-										  <form th:action="@{/productByPrice}" method="get">
-											  <input type="number"  hidden name="from" id="from" th:value=10000 required />
-											  <input type="number"  hidden name="to" id="to" th:value=100000 required />
-											  <input type="submit" value="Gía: 10.000Đ - 100.000Đ"/>
-										  </form>
-			  						  </div>
-			  					  </li>
-								  <li >
-									  <div class="shop-widget-title">
-										  <form th:action="@{/productByPrice}" method="get">
-											  <input type="number"  hidden name="from" id="from" th:value=100000 required />
-											  <input type="number"  hidden name="to" id="to" th:value=300000 required />
-											  <input type="submit" value="Gía: 100.000Đ - 300.000Đ"/>
-										  </form>
-									  </div>
-								  </li>
-			  					  <li >
-									  <div class="shop-widget-title">
-										  <form th:action="@{/productByPrice}" method="get">
-											  <input type="number"  hidden name="from" id="from" th:value=300000 required />
-											  <input type="number"  hidden name="to" id="to" th:value=500000 required />
-											  <input type="submit" value="Gía: 300.000Đ - 500.000Đ"/>
-										  </form>
-									  </div>
-			  					  </li>
-			  					  <li >
-									  <div class="shop-widget-title">
-										  <form th:action="@{/productByPrice}" method="get">
-											  <input type="number"  hidden name="from" id="from" th:value=500000 required />
-											  <input type="number"  hidden name="to" id="to" th:value=1000000 required />&nbsp;
-											  <input type="submit" value="Gía: 500.000Đ - 1.000.000Đ"/>
-										  </form>
-
-									  </div>
-			  					  </li>
-			  				  </ul>
-			  			  </div>
+						  </div>
+					  </li>
+				  </ul>
+			  </div>
              <div class="shop-widget">
               <h6 class="shop-widget-title">Theo danh mục</h6>
               
@@ -201,13 +197,13 @@
                     </div>
                   </div>
                   <div class="product-content">
-                    <div class="product-rating">
-                      <i class="active icofont-star"></i>
-                      <i class="active icofont-star"></i>
-                      <i class="active icofont-star"></i>
-                      <i class="active icofont-star"></i>
-                      <i class="icofont-star"></i>
-                    </div>
+<!--                    <div class="product-rating">-->
+<!--                      <i class="active icofont-star"></i>-->
+<!--                      <i class="active icofont-star"></i>-->
+<!--                      <i class="active icofont-star"></i>-->
+<!--                      <i class="active icofont-star"></i>-->
+<!--                      <i class="icofont-star"></i>-->
+<!--                    </div>-->
                     <h6 class="product-name">
                       <a href="javascript:void(0);">[[${item.productName}]]</a>
                     </h6>
@@ -215,7 +211,8 @@
 						<th:block th:if="${item.discount}!=0">
 
 						<del>[[${#numbers.formatDecimal(item.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
-                      <span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
+                      <span>[[${#numbers.formatDecimal(item.price - (item.price * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]
+						  <small>/kg</small></span>
                     </h6>
                     
                     <a class="product-add1" title="Thêm Giỏ Hàng" th:href="@{/addToCart(productId=${item.productId})}" >

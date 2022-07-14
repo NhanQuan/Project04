@@ -46,7 +46,7 @@
       class="inner-section single-banner"
       style="background: url(images/single-banner.jpg) no-repeat center">
       <div class="container">
-        <h2>Dòng thông tin</h2>
+        <h2>Thông tin đơn hàng</h2>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a th:href="@{/}">Trang Chủ</a></li>
         </ol>
@@ -102,7 +102,7 @@
                           <h6><a th:href="@{/xoaToCart(productId=${item.product.productId})}">
                           <i style="font-size:10px" class="fa">&#xf068;</i>
 
-                        </a>&nbsp;&nbsp;[[${item.quantity}]]&nbsp;&nbsp;
+                        </a>&nbsp;&nbsp;[[${item.quantity}]]&nbsp;/kg
 
                           <a th:href="@{/tangToCart(productId=${item.product.productId})}">
                             <i style="font-size:10px" class="fa">&#xf067;</i></a></h6>
@@ -132,7 +132,7 @@
                 <div class="checkout-charge">
                   <ul>
                     <li>
-                      <span>TTổng tiền thanh toán<small>(Incl. VAT)</small></span>
+                      <span>Tổng tiền thanh toán<small>(Incl. VAT)</small></span>
                       <span>[[${#numbers.formatDecimal(totalPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</span>
                     </li>
                   </ul>
