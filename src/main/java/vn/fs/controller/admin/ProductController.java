@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +31,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import vn.fs.dto.OrderExcelExporter;
+import vn.fs.dto.ProductExcelExporter;
 import vn.fs.entities.Category;
+import vn.fs.entities.Order;
 import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.CategoryRepository;
 import vn.fs.repository.OrderDetailRepository;
 import vn.fs.repository.ProductRepository;
 import vn.fs.repository.UserRepository;
+import vn.fs.service.OrderDetailService;
+import vn.fs.service.ProductDetailService;
 import vn.fs.service.QrCodeGeneratorService;
 
 @Controller
@@ -45,7 +51,8 @@ public class ProductController{
 
 	@Value("${upload.path}")
 	private String pathUploadImage;
-
+	@Autowired
+	ProductDetailService productDetailService;
 	@Autowired
 	private QrCodeGeneratorService qrCodeGeneratorService;
 
@@ -216,7 +223,21 @@ public class ProductController{
 
 		return "redirect:/admin/products";
 	}
+	@GetMapping(value = "/export1")
+	public void exportToExcel(HttpServletResponse response) throws IOException {
 
+		response.setContentType("application/octet-stream");
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachement; filename=products.xlsx";
+
+		response.setHeader(headerKey, headerValue);
+
+		List<Product> lisProducts = productDetailService.listAll();
+
+		ProductExcelExporter excelExporter = new ProductExcelExporter(lisProducts);
+		excelExporter.export(response);
+
+	}
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -33,7 +33,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 				<div class="row">
 					<div class="col-md-12 col-lg-5">
 						<div class="header-top-welcome">
-							<p>Welcome to the grocery store!</p>
+							<p>Chào mừng đến với cửa hàng !</p>
 						</div>
 					</div>
 					<div class="col-md-5 col-lg-7">
@@ -121,25 +121,25 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 						<div class="navbar-content">
 							<ul class="navbar-list">
 								<li class="navbar-item dropdown"><a
-									class="navbar-link dropdown-arrow" href="javascript:void(0);">Home Page</a>
+									class="navbar-link dropdown-arrow" href="javascript:void(0);">Trang Chủ</a>
 									<ul class="dropdown-position-list">
-										<li><a href="/">Home Page</a></li>
+										<li><a href="/">Trang Chủ</a></li>
 									</ul></li>
 								<li class="navbar-item dropdown">
 									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Giới thiệu</a>
 									<ul class="dropdown-position-list">
-										<li><a th:href="@{/aboutUs}">About US</a></li>
+										<li><a th:href="@{/aboutUs}">Thông tin</a></li>
 										<li><a th:href="@{/faq}">FAQ</a></li>
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Product</a>
+									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Sản Phẩm</a>
 									<ul class="dropdown-position-list">
-										<li><a th:href="@{/products}">All products</a></li>
+										<li><a th:href="@{/products}">Tất Cả Sản Phẩm</a></li>
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Category</a>
+									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Loại</a>
 									<ul class="dropdown-position-list">
 										<li th:each="item : ${categoryList}">
 											<a th:href="@{/productByCategory(id=${item.categoryId})}">[[${item.categoryName}]]</a>
@@ -148,22 +148,22 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 									</ul>
 								</li>
 								<li class="navbar-item dropdown">
-									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Contact</a>
+									<a class="navbar-link dropdown-arrow" href="javascript:void(0);">Liên Hệ</a>
 									<ul class="dropdown-position-list">
-										<li><a th:href="@{/contact}">Contact</a></li>
+										<li><a th:href="@{/contact}">Liên Hệ</a></li>
 									</ul>
 								</li>
 								<li class="navbar-item dropdown"><a
-									class="navbar-link dropdown-arrow" href="javascript:void(0);">Account</a>
+									class="navbar-link dropdown-arrow" href="javascript:void(0);">Tài Khoản</a>
 									<ul class="dropdown-position-list">
 										<th:block th:unless="${#request.remoteUser}">
-							              	<li><a th:href="@{/login}">Login</a></li>
-											<li><a th:href="@{/register}">Register</a></li>
-											<li><a th:href="@{/forgotPassword}">Forgot password</a></li>
+							              	<li><a th:href="@{/login}">Đăng  Nhập</a></li>
+											<li><a th:href="@{/register}">Đăng Ký</a></li>
+											<li><a th:href="@{/forgotPassword}">Quên Mật Khẩu</a></li>
 							            </th:block>
 							            <th:block th:if="${#request.remoteUser}">
-											<li><a th:href="@{/profile}">Account Information</a></li>
-											<li><a th:href="@{/logout}">Log out</a></li>
+											<li><a th:href="@{/profile}">Thông Tin Tài Khoản</a></li>
+											<li><a th:href="@{/logout}">Đăng Xuất</a></li>
 						              	</th:block>
 										
 									</ul>
@@ -193,7 +193,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 		<aside class="cart-sidebar">
 			<div class="cart-header">
 				<div class="cart-total">
-					<i class="fas fa-shopping-basket"></i><span>Total amount of cart ([[${totalCartItems}]])</span>
+					<i class="fas fa-shopping-basket"></i><span>Tổng Số Lượng Giỏ Hàng ([[${totalCartItems}]])</span>
 				</div>
 				<button class="cart-close">
 					<i class="icofont-close"></i>
@@ -202,9 +202,9 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 			</div>
 			
 			<div th:unless="${totalCartItems!=0}" class="text-center">
-				<h4 style="color: #119744" class="mt-5">You currently have no products in your cart!</h4>
-				<h5 style="color: #119744">Let's go shopping!</h5>
-				<a th:href="@{/products}" style="text-decoration: underline;">Click here!</a>
+				<h4 style="color: #119744" class="mt-5">Bạn hiện không có sản phẩm trong giỏ hàng !</h4>
+				<h5 style="color: #119744">Hãy đi mua sắm!</h5>
+				<a th:href="@{/products}" style="text-decoration: underline;">Bấm Vào Đây!</a>
 			</div>
 			
 			<th:block th:if="${totalCartItems!=0}">
@@ -218,24 +218,24 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 					<div class="cart-info-group">
 						<div class="cart-info">
 							<h6>
-								<label>Product's name :</label>
+								<label>Mặt Hàng:</label>
 								<a th:href="@{/productDetail(id=${item.product.productId})}" style="color: #119744">[[${item.product.productName}]]</a>
 							</h6>
-							<label>Unit price :</label>
+							<label>Gía :</label>
 							<p>[[${#numbers.formatDecimal(item.product.price - (item.product.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</p>
 						</div>
 <!--						long-->
 						<div class="cart-action-group">
 							<div class="product-action">
-								<label>Quantity :</label>
+								<label>Số Lượng : </label>
 								<h6>
 									<a th:href="@{/deleteaproduct(productId=${item.product.productId})}">
-										<i style="font-size:24px" class="fa header-cart">&#xf068;</i>
+										<i style="font-size:10px" class="fa header-cart">&#xf068;</i>
 
 									</a>&nbsp;&nbsp;[[${item.quantity}]]&nbsp;&nbsp;
 
 									<a th:href="@{/addToCart(productId=${item.product.productId})}">
-										<i style="font-size:24px" class="fa header-cart">&#xf067;</i>
+										<i style="font-size:10px" class="fa header-cart">&#xf067;</i>
 									</a>
 
 								</h6>
@@ -252,13 +252,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 				</li>
 			</ul>
 				<div class="cart-action-group">
-					<h6>Total Payment:</h6>
+					<h6>Tổng Tiền Thanh Toán:</h6>
 					<h6>[[${#numbers.formatDecimal(totalPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' đ']]</h6>
 				</div>
 
 				<div class="cart-footer">
 				<a class="cart-checkout-btn" th:href="@{/checkout}"><span
-					class="checkout-label">Pay</span>
+					class="checkout-label">Thanh Toán</span>
 				</a>
 			</div>
 			</th:block>
