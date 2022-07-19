@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700;800;900&amp;display=swap");
 /* @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&amp;display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Playfair:wght@400;500;600;700;800;900&amp;display=swap"); */
-:root {
+@import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+@import url("https://cdn.jsdelivr.net/gh/JNKKKK/MoreToggles.css@0.2.1/output/moretoggles.min.css");                                                                                                         :root {
   --h1size: 50px;
   --h2size: 40px;
   --h3size: 24px;

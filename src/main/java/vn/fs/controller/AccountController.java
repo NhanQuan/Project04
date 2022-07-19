@@ -21,10 +21,7 @@ import vn.fs.entities.User;
 import vn.fs.repository.UserRepository;
 import vn.fs.service.SendMailService;
 
-/**
- * @author DongTHD
- *
- */
+
 @Controller
 public class AccountController {
 

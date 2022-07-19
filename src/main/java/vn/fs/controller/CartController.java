@@ -38,10 +38,7 @@ import vn.fs.service.PaypalService;
 import vn.fs.service.ShoppingCartService;
 import vn.fs.util.Utils;
 
-/**
- * @author DongTHD
- *
- */
+
 @Controller
 public class CartController extends CommomController {
 
@@ -201,6 +198,8 @@ public class CartController extends CommomController {
 			double unitPrice = cartItem.getProduct().getPrice();
 			orderDetail.setPricedetail(unitPrice);
 			orderDetailRepository.save(orderDetail);
+			Product product = productRepository.findById(cartItem.getProduct().getProductId()).orElse(null);
+	        product.setStatus(1);
 		}
 
 		// sendMail

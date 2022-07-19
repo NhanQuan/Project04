@@ -33,10 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import vn.fs.dto.OrderExcelExporter;
 import vn.fs.dto.ProductExcelExporter;
-import vn.fs.entities.Category;
-import vn.fs.entities.Order;
-import vn.fs.entities.Product;
-import vn.fs.entities.User;
+import vn.fs.entities.*;
 import vn.fs.repository.CategoryRepository;
 import vn.fs.repository.OrderDetailRepository;
 import vn.fs.repository.ProductRepository;
@@ -90,6 +87,7 @@ public class ProductController{
 		List<Product> products = productRepository.findAll();
 		model.addAttribute("products", products);
 
+
 		return products;
 	}
 
@@ -97,7 +95,6 @@ public class ProductController{
 	public String products(Model model, Principal principal) {
 		Product product = new Product();
 		model.addAttribute("product", product);
-
 		return "admin/products";
 	}
 
@@ -123,9 +120,7 @@ public class ProductController{
 			productRepository.save(p);
 			if (null != p) {
 				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
-				String qrCodeContent = "Name: " + product.getProductName()
-						+ "\nPrice: " + product.getPrice()
-						+ "\nDescription: " + product.getDescription();
+				String qrCodeContent ="http://192.168.0.106:8077/aboutUs";
 				int width = 400;
 				int height = 400;
 				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
@@ -184,6 +179,7 @@ public class ProductController{
 				p.setProductImage(file.getOriginalFilename());
 			}
 		      p.setQrCode(product.getProductId() + ".png");
+			p.setStatus(0);
 			productRepository.save(p);
 			if (null != p) {
 				try{
@@ -192,13 +188,11 @@ public class ProductController{
 				}catch (Exception e){
 
 				}
-				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
-				String qrCodeContent = "Name: " + p.getProductName()
-						+ "\nPrice: " + p.getPrice()
-						+ "\nDescription: " + p.getDescription();
-				int width = 400;
-				int height = 400;
-				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
+//				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
+//				String qrCodeContent = "http://192.168.0.106:8077/aboutUs";
+//				int width = 400;
+//				int height = 400;
+//				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
 				model.addAttribute("message", "Update success");
 				model.addAttribute("product", p);
 			} else {
@@ -214,8 +208,8 @@ public class ProductController{
 		try{
 			Path myPath = Paths.get(pathUploadImage + "/" + productRepository.findById(id).get().getProductImage());
 			Files.deleteIfExists(myPath);
-			Path myPathqr = Paths.get(pathUploadImage + "/" + productRepository.findById(id).get().getQrCode());
-			Files.deleteIfExists(myPathqr);
+//			Path myPathqr = Paths.get(pathUploadImage + "/" + productRepository.findById(id).get().getQrCode());
+//			Files.deleteIfExists(myPathqr);
 		}catch (IOException e) {
 		}
 	 productRepository.deleteById(id);

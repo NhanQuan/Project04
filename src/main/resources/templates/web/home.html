@@ -190,6 +190,82 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="section recent-part">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-heading">
+						<h2>Moi xem gan day</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<ul class="new-slider slider-arrow">
+						<li th:each="item : ${history}">
+							<div class="product-card">
+								<div class="product-media">
+									<div class="product-label">
+										<label class="label-text new">Đang Bán</label>
+										<th:block th:if="${item.product.discount}!=0">
+
+											<label class="label-text sale">- [[${item.product.discount + '%'}]]</label></th:block>
+									</div>
+									<button class="product-wish wish">
+										<i class="fas fa-heart"></i>
+									</button>
+									<a class="product-image" th:href="@{/productDetail(id=${item.product.productId})}">
+										<img th:src="@{'/loadImage?imageName='+${item.product.productImage}}" alt="product" />
+									</a>
+									<div class="product-widget">
+
+										<a
+												title="Video Product"
+												href="https://youtu.be/9xzcVxSBbG8"
+												class="venobox fas fa-play"
+												data-autoplay="true"
+												data-vbtype="video">
+										</a>
+										<a
+												title="Detail Product"
+												th:href="@{/productDetail(id=${item.product.productId})}"
+												class="fas fa-eye">
+										</a>
+									</div>
+								</div>
+								<div class="product-content">
+									<h6 class="product-name">
+										<a th:href="@{/productDetail(id=${item.product.productId})}">[[${item.product.productName}]]</a>
+									</h6>
+									<h6 class="product-price">
+										<th:block th:if="${item.product.discount}!=0">
+
+											<del>[[${#numbers.formatDecimal(item.product.price, 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]</del></th:block>
+										<span>[[${#numbers.formatDecimal(item.product.price - (item.product.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+' đ']]<small>/kg</small></span>
+									</h6>
+									<a class="product-add1" title="Thêm giỏ hàng" th:href="@{/addToCart(productId=${item.product.productId})}">
+										<i class="fas fa-shopping-basket"></i><span>Thêm vào giỏ hàng</span>
+									</a>
+
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-btn-25">
+						<a th:href="@{/products}" class="btn btn-outline"><i
+								class="fas fa-eye"></i><span>Xem thêm</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<div class="section promo-part">
 		<div class="container">
 			<div class="row">
@@ -410,81 +486,39 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	<section class="section testimonial-part">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="section-heading">
-						<h2>Phản hồi của khách hàng</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="testimonial-slider slider-arrow">
-						<div class="testimonial-card">
-							<i class="fas fa-quote-left"></i>
-							<p>Goods exactly as advertised, fast and convenient delivery, delicious vegetable will buy more later
-							</p>
-							<h5>mahmud hasan</h5>
-<!--							<ul>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--							</ul>-->
-							<img src="images/avatar/01.jpg" alt="testimonial" />
-						</div>
-						<div class="testimonial-card">
-							<i class="fas fa-quote-left"></i>
-							<p>Mua được hàng sale quá rẻ, chưa ăn nên không biết chất lượng thế nào, đóng gói chắc chắn
-							</p>
-							<h5>Nguyễn Văn Nhân</h5>
-<!--							<ul>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--							</ul>-->
-							<img src="images/avatar/02.jpg" alt="testimonial" />
-						</div>
-						<div class="testimonial-card">
-							<i class="fas fa-quote-left"></i>
-							<p>Phù hop giá tiền . cũng dc . ok  nói chung là ổn
-							</p>
-							<h5>Sơn Tùng</h5>
-<!--							<ul>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--							</ul>-->
-							<img src="images/avatar/03.jpg" alt="testimonial" />
-						</div>
-						<div class="testimonial-card">
-							<i class="fas fa-quote-left"></i>
-							<p>Giao hàng nhanh. Sản phẩm ok.. sản phẩm đúng với hình.
-							</p>
-							<h5>Long</h5>
-<!--							<ul>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--								<li class="fas fa-star"></li>-->
-<!--							</ul>-->
-							<img src="images/avatar/04.jpg" alt="testimonial" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!--	<section class="section testimonial-part">-->
+<!--		<div class="container">-->
+<!--			<div class="row">-->
+<!--				<div class="col-12">-->
+<!--					<div class="section-heading">-->
+<!--						<h2>Phản hồi của khách hàng</h2>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="row">-->
+<!--				<div class="col-lg-12">-->
+<!--					<div class="testimonial-slider slider-arrow">-->
+<!--						<div class="testimonial-card">-->
+<!--							<i class="fas fa-quote-left"></i>-->
+<!--							<p>Goods exactly as advertised, fast and convenient delivery, delicious vegetable will buy more later-->
+<!--							</p>-->
+<!--							<h5>mahmud hasan</h5>-->
+<!--&lt;!&ndash;							<ul>&ndash;&gt;-->
+<!--&lt;!&ndash;								<li class="fas fa-star"></li>&ndash;&gt;-->
+<!--&lt;!&ndash;								<li class="fas fa-star"></li>&ndash;&gt;-->
+<!--&lt;!&ndash;								<li class="fas fa-star"></li>&ndash;&gt;-->
+<!--&lt;!&ndash;								<li class="fas fa-star"></li>&ndash;&gt;-->
+<!--&lt;!&ndash;								<li class="fas fa-star"></li>&ndash;&gt;-->
+<!--&lt;!&ndash;							</ul>&ndash;&gt;-->
+<!--							<img src="images/avatar/01.jpg" alt="testimonial" />-->
+<!--						</div>-->
+
+
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</section>-->
 
 	<section class="news-part"
 			 style="background: url(images/newsletter.jpg) no-repeat center">

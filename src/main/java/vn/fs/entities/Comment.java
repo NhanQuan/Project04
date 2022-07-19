@@ -18,11 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author DongTHD
- *
- */
-@SuppressWarnings("serial")
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,11 +29,11 @@ public class Comment implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Double rating;
 	private String content;
 	@Temporal(TemporalType.DATE)
 	private Date rateDate;
-
+	private int star;
+	private int status;
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
@@ -45,9 +41,4 @@ public class Comment implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "productId")
 	private Product product;
-
-	@OneToOne
-	@JoinColumn(name = "orderDetailId")
-	private OrderDetail orderDetail;
-
 }

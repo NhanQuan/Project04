@@ -130,12 +130,10 @@
 													<input th:field="*{discount}" id="discount" min = 0  max=50 type="number" class="form-control" placeholder="giảm giá">
 												</div>
 											</div>
-<!--											<div class="col-md-6 pr-0">-->
-<!--												<div class="form-group form-group-default">-->
-<!--													<label>Ngày thêm</label>-->
-<!--													<input th:field="*{enteredDate}" id="enteredDate" type="date" class="form-control" readonly placeholder="ngày thêm">-->
-<!--												</div>-->
-<!--											</div>-->
+
+													<input th:field="*{enteredDate}" id="enteredDate" hidden type="date" class="form-control" readonly placeholder="ngày thêm">
+											<input th:field="*{status}" id="status" hidden />
+											</div>
 											<div class="col-sm-12">
 												<div class="form-group form-group-default">
 													<label>Ảnh</label>

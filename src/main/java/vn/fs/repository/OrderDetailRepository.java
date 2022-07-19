@@ -17,8 +17,10 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
 
 	@Query(value = "select * from order_details where order_id = ?;", nativeQuery = true)
 	List<OrderDetail> findByOrderId(Long id);
+
 	@Query(value = "select * from order_details where product_id = ?;", nativeQuery = true)
 	List<OrderDetail> findbyProduct(Long id);
+
 	// Statistics by product sold
     @Query(value = "SELECT p.product_name , \r\n"
     		+ "SUM(o.quantitydetail) as quantitydetail ,\r\n"
@@ -81,7 +83,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
     public List<Object[]> repoWhereQUARTER();
     
     // Statistics by user
-    @Query(value = "SELECT c.name,\r\n"
+    @Query(value = "SELECT c.user_id,\r\n"
     		+ "SUM(o.quantitydetail) as quantitydetail,\r\n"
     		+ "SUM(o.quantitydetail * o.pricedetail) as sum,\r\n"
     		+ "AVG(o.pricedetail) as avg,\r\n"
@@ -90,7 +92,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
     		+ "FROM order_details o\r\n"
     		+ "INNER JOIN orders p ON o.order_id = p.order_id\r\n"
     		+ "INNER JOIN user c ON p.user_id = c.user_id\r\n"
-    		+ "GROUP BY c.name;", nativeQuery = true)
+    		+ "GROUP BY c.user_id;", nativeQuery = true)
     public List<Object[]> reportCustommer();
 
 }

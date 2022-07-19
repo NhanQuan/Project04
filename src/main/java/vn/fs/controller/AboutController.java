@@ -27,5 +27,5 @@ public class AboutController extends CommomController {
 		commomDataService.commonData(model, user);
 		return "web/faq";
 	}
-	
+
 }

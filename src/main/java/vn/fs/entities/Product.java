@@ -16,11 +16,6 @@ import javax.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-/**
- * @author DongTHD
- *
- */
 @SuppressWarnings("serial")
 @Data
 @AllArgsConstructor
@@ -41,7 +36,7 @@ public class Product implements Serializable {
 	private String description;
 	@Temporal(TemporalType.DATE)
 	private Date enteredDate;
-	private Boolean status;
+	private int status;
 	public boolean favorite;
 
 	@ManyToOne
