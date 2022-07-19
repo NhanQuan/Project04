@@ -103,12 +103,10 @@ public class ReportController {
 	public String reportordercustomer(Model model, Principal principal) throws SQLException {
 		User user = userRepository.findByEmail(principal.getName());
 		model.addAttribute("user", user);
-
 		OrderDetail orderDetail = new OrderDetail();
 		model.addAttribute("orderDetail", orderDetail);
 		List<Object[]> listReportCommon = orderDetailRepository.reportCustommer();
 		model.addAttribute("listReportCommon", listReportCommon);
-
 		return "admin/statistical";
 	}
 	

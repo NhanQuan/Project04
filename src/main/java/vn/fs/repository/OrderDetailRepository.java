@@ -83,7 +83,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> 
     public List<Object[]> repoWhereQUARTER();
     
     // Statistics by user
-    @Query(value = "SELECT c.user_id,\r\n"
+    @Query(value = "SELECT c.name,\r\n"
     		+ "SUM(o.quantitydetail) as quantitydetail,\r\n"
     		+ "SUM(o.quantitydetail * o.pricedetail) as sum,\r\n"
     		+ "AVG(o.pricedetail) as avg,\r\n"
