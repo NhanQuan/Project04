@@ -36,6 +36,7 @@ public class Order implements Serializable {
 	private Double amount;
 	private String address;
 	private String phone;
+	//private String content;
 	private int status;
 
 	@OneToMany(mappedBy = "order")

@@ -71,33 +71,34 @@
 										<h4 class="card-title" style="text-decoration: underline;">Quản Lý Thống Kê</h4>
 									</div>
 								</div>
-							<div class="card-body">
-								<div class="table-responsive">
-									<table id="add-row" class="display table table-striped table-hover" >
-										<thead>
+							<th:block th:if="${listReportCommoncate.size() !=0}">
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="add-row" class="display table table-striped table-hover" >
+											<thead>
 											<tr>
 												<th>#</th>
-												<th>Nhóm</th>
+												<th>Category</th>
 												<th>Số lượng bán ra</th>
 												<th>Doanh thu</th>
 												<th>Giá trung bình</th>
 												<th>Giá thấp nhất</th>
 												<th>Giá cao nhất</th>
 											</tr>
-										</thead>
-										<tfoot>
+											</thead>
+											<tfoot>
 											<tr>
 												<th>#</th>
-												<th>Nhóm</th>
+												<th>Quy</th>
 												<th>Số lượng bán ra</th>
 												<th>Doanh thu</th>
 												<th>Giá trung bình</th>
 												<th>Giá thấp nhất</th>
 												<th>Giá cao nhất</th>
 											</tr>
-										</tfoot>
-										<tbody>
-											<tr th:each="item, iState : ${listReportCommon}">
+											</tfoot>
+											<tbody>
+											<tr th:each="item, iState : ${listReportCommoncate}">
 												<td>[[${iState.index + 1}]]</td>
 												<td>[[${item[0]}]]</td>
 												<td>[[${item[1]}]]</td>
@@ -106,10 +107,13 @@
 												<td>[[${#numbers.formatDecimal(item[4], 1, 'DEFAULT', 0, 'DEFAULT')} + ' đ']]</td>
 												<td>[[${#numbers.formatDecimal(item[5], 1, 'DEFAULT', 0, 'DEFAULT')} + ' đ']]</td>
 											</tr>
-										</tbody>
-									</table>
+											</tbody>
+										</table>
+									</div>
 								</div>
-							</div>
+							</th:block>
+
+
 						</div>
 					</div>
 				</div>

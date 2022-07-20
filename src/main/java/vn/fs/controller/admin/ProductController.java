@@ -120,7 +120,7 @@ public class ProductController{
 			productRepository.save(p);
 			if (null != p) {
 				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
-				String qrCodeContent ="http://192.168.0.106:8077/aboutUs";
+				String qrCodeContent ="http://172.16.1.143:8077/aboutUs";
 				int width = 400;
 				int height = 400;
 				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
@@ -188,11 +188,11 @@ public class ProductController{
 				}catch (Exception e){
 
 				}
-//				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
-//				String qrCodeContent = "http://192.168.0.106:8077/aboutUs";
-//				int width = 400;
-//				int height = 400;
-//				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
+				String filePath =pathUploadImage + "/"+ p.getProductId()+".png";
+				String qrCodeContent = "http://172.16.1.143:8077/aboutUs";
+				int width = 400;
+				int height = 400;
+				qrCodeGeneratorService.generateQRCode(qrCodeContent, filePath, width, height);
 				model.addAttribute("message", "Update success");
 				model.addAttribute("product", p);
 			} else {
