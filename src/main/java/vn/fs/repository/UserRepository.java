@@ -7,10 +7,7 @@ import vn.fs.entities.User;
 
 import java.util.Optional;
 
-/**
- * @author DongTHD
- *
- */
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
